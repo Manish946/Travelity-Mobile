@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "A0kgxrCzSir66rnMWTbZVZnWrx2zOKcxUhDCkadTjDtLZmB+EXtbBQYAwwFUcRtf/JFOKSZSmoxWgzme2CFLZg==",
+  "dgSpecHash": "WgWznZkveF1JkY86MFl2xsS3N/1kcXm5P3c22N1cGP0poz2VLtTKu2XrlcsJF/1k3ZAZl5yez2WfLOfZ/XwK/g==",
   "success": true,
-  "projectFilePath": "C:\\Travelity Cloud\\Travelity\\Travelity.Abstractions\\Travelity.Abstractions.csproj",
+  "projectFilePath": "C:\\Users\\msh\\Downloads\\Github\\Travelity-Mobile\\Travelity.Abstractions\\Travelity.Abstractions.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\msh\\.nuget\\packages\\fody\\6.5.1\\fody.6.5.1.nupkg.sha512",
     "C:\\Users\\msh\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RpPb5d6NPXo3TKeDtqyMk1UJAfKf1y1Wd1sbBlU9DuVp3+yKdW12lc0j7HThnOApFOm8+879Tv6aM35LpPTrpA==",
+  "dgSpecHash": "lK1bmuqDIXja7tyITdLzOi174XX/C+XcEhPFkIpq++wBjxFT3fU9GjdJkGHvYO92vepS7Pg29NkJnxPhhd8Wdg==",
   "success": true,
-  "projectFilePath": "C:\\Travelity Cloud\\Travelity\\Travelity.iOS\\Travelity.iOS.csproj",
+  "projectFilePath": "C:\\Users\\msh\\Downloads\\Github\\Travelity-Mobile\\Travelity.iOS\\Travelity.iOS.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\msh\\.nuget\\packages\\acr.userdialogs\\7.2.0.562\\acr.userdialogs.7.2.0.562.nupkg.sha512",
     "C:\\Users\\msh\\.nuget\\packages\\btprogresshud\\1.3.5\\btprogresshud.1.3.5.nupkg.sha512",

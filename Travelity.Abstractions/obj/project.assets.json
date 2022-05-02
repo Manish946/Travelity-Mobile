@@ -3522,11 +3522,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Travelity Cloud\\Travelity\\Travelity.Abstractions\\Travelity.Abstractions.csproj",
+      "projectUniqueName": "C:\\Users\\msh\\Downloads\\Github\\Travelity-Mobile\\Travelity.Abstractions\\Travelity.Abstractions.csproj",
       "projectName": "Travelity.Abstractions",
-      "projectPath": "C:\\Travelity Cloud\\Travelity\\Travelity.Abstractions\\Travelity.Abstractions.csproj",
+      "projectPath": "C:\\Users\\msh\\Downloads\\Github\\Travelity-Mobile\\Travelity.Abstractions\\Travelity.Abstractions.csproj",
       "packagesPath": "C:\\Users\\msh\\.nuget\\packages\\",
-      "outputPath": "C:\\Travelity Cloud\\Travelity\\Travelity.Abstractions\\obj\\",
+      "outputPath": "C:\\Users\\msh\\Downloads\\Github\\Travelity-Mobile\\Travelity.Abstractions\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

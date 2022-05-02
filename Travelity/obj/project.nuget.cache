@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sgP0UMR8Go7TYl3O7pj5pi6rjPyWJBdGfWZME1UU1jyGHBEhuUaU4mY8pVc3iknO3sjFYTYI+JrAxkPL89WIyQ==",
+  "dgSpecHash": "D55YSMx//Loqh05r0NB2tVqdvVpBshiq7TM2aLd6AVr/Ml4kFPh9nA7TfKqMwyQzkxevvjzGxvlUA1lI4OcGCQ==",
   "success": true,
-  "projectFilePath": "C:\\Travelity Cloud\\Travelity\\Travelity\\Travelity.csproj",
+  "projectFilePath": "C:\\Users\\msh\\Downloads\\Github\\Travelity-Mobile\\Travelity\\Travelity.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\msh\\.nuget\\packages\\acr.userdialogs\\7.2.0.562\\acr.userdialogs.7.2.0.562.nupkg.sha512",
     "C:\\Users\\msh\\.nuget\\packages\\com.airbnb.xamarin.forms.lottie\\4.1.0\\com.airbnb.xamarin.forms.lottie.4.1.0.nupkg.sha512",

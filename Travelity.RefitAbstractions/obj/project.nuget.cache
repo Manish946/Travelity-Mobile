@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "StfRB3T4++O7rm8ZQCAIHofCp9IUJfrNibYjvk9cJgpB3BUfi17BvWhfxJ0wDZzit4TvTLuILsblD0co5KFBMA==",
+  "dgSpecHash": "+rwatANNqZZy9Z3TfYJhoCVctWtsFSbMQbIAK3qxtHtsawdch3L6rfH17iFXoue1FSP/wnVrTQ9Qx7NnOWWNmQ==",
   "success": true,
-  "projectFilePath": "C:\\Travelity Cloud\\Travelity\\Travelity.RefitAbstractions\\Travelity.RefitAbstractions.csproj",
+  "projectFilePath": "C:\\Users\\msh\\Downloads\\Github\\Travelity-Mobile\\Travelity.RefitAbstractions\\Travelity.RefitAbstractions.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\msh\\.nuget\\packages\\fody\\6.5.1\\fody.6.5.1.nupkg.sha512",
     "C:\\Users\\msh\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

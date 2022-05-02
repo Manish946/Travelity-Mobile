@@ -10666,11 +10666,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Travelity Cloud\\Travelity\\Travelity.iOS\\Travelity.iOS.csproj",
+      "projectUniqueName": "C:\\Users\\msh\\Downloads\\Github\\Travelity-Mobile\\Travelity.iOS\\Travelity.iOS.csproj",
       "projectName": "Travelity.iOS",
-      "projectPath": "C:\\Travelity Cloud\\Travelity\\Travelity.iOS\\Travelity.iOS.csproj",
+      "projectPath": "C:\\Users\\msh\\Downloads\\Github\\Travelity-Mobile\\Travelity.iOS\\Travelity.iOS.csproj",
       "packagesPath": "C:\\Users\\msh\\.nuget\\packages\\",
-      "outputPath": "C:\\Travelity Cloud\\Travelity\\Travelity.iOS\\obj\\",
+      "outputPath": "C:\\Users\\msh\\Downloads\\Github\\Travelity-Mobile\\Travelity.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -10691,8 +10691,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\Travelity Cloud\\Travelity\\Travelity\\Travelity.csproj": {
-              "projectPath": "C:\\Travelity Cloud\\Travelity\\Travelity\\Travelity.csproj"
+            "C:\\Users\\msh\\Downloads\\Github\\Travelity-Mobile\\Travelity\\Travelity.csproj": {
+              "projectPath": "C:\\Users\\msh\\Downloads\\Github\\Travelity-Mobile\\Travelity\\Travelity.csproj"
             }
           }
         }

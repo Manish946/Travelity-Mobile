@@ -9200,11 +9200,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Travelity Cloud\\Travelity\\Travelity.Android\\Travelity.Android.csproj",
+      "projectUniqueName": "C:\\Users\\msh\\Downloads\\Github\\Travelity-Mobile\\Travelity.Android\\Travelity.Android.csproj",
       "projectName": "Travelity.Android",
-      "projectPath": "C:\\Travelity Cloud\\Travelity\\Travelity.Android\\Travelity.Android.csproj",
+      "projectPath": "C:\\Users\\msh\\Downloads\\Github\\Travelity-Mobile\\Travelity.Android\\Travelity.Android.csproj",
       "packagesPath": "C:\\Users\\msh\\.nuget\\packages\\",
-      "outputPath": "C:\\Travelity Cloud\\Travelity\\Travelity.Android\\obj\\",
+      "outputPath": "C:\\Users\\msh\\Downloads\\Github\\Travelity-Mobile\\Travelity.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -9225,8 +9225,8 @@
       "frameworks": {
         "monoandroid12.0": {
           "projectReferences": {
-            "C:\\Travelity Cloud\\Travelity\\Travelity\\Travelity.csproj": {
-              "projectPath": "C:\\Travelity Cloud\\Travelity\\Travelity\\Travelity.csproj"
+            "C:\\Users\\msh\\Downloads\\Github\\Travelity-Mobile\\Travelity\\Travelity.csproj": {
+              "projectPath": "C:\\Users\\msh\\Downloads\\Github\\Travelity-Mobile\\Travelity\\Travelity.csproj"
             }
           }
         }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "822qHuCMOzCbVmMBwRCm6IH9n24UV/He4JWmFrY/PdDJIOdmcvYv56lhN75VLH5PvTlL7OUz3TVBQ4MlV17k4Q==",
+  "dgSpecHash": "o4Osld3XwvIE/t0Kw3XRZwXu6gsI56nRJ5eyrjNOIYirE6X5lPFoYxFHysLT85W9nFm2mr39TsQ5pUqe6n47nQ==",
   "success": true,
-  "projectFilePath": "C:\\Travelity Cloud\\Travelity\\Travelity.Android\\Travelity.Android.csproj",
+  "projectFilePath": "C:\\Users\\msh\\Downloads\\Github\\Travelity-Mobile\\Travelity.Android\\Travelity.Android.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\msh\\.nuget\\packages\\acr.userdialogs\\7.2.0.562\\acr.userdialogs.7.2.0.562.nupkg.sha512",
     "C:\\Users\\msh\\.nuget\\packages\\andhud\\1.4.3\\andhud.1.4.3.nupkg.sha512",
