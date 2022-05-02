@@ -11,3 +11,16 @@ C:\Travelity Cloud\Travelity\Travelity.RefitAbstractions\obj\Debug\netstandard2.
 C:\Travelity Cloud\Travelity\Travelity.RefitAbstractions\obj\Debug\netstandard2.1\Travelity.RefitAbstractions.csproj.CopyComplete
 C:\Travelity Cloud\Travelity\Travelity.RefitAbstractions\obj\Debug\netstandard2.1\Travelity.RefitAbstractions.dll
 C:\Travelity Cloud\Travelity\Travelity.RefitAbstractions\obj\Debug\netstandard2.1\Travelity.RefitAbstractions.pdb
+C:\Users\msh\Downloads\Github\Travelity-Mobile\Travelity.RefitAbstractions\bin\Debug\netstandard2.1\Travelity.RefitAbstractions.deps.json
+C:\Users\msh\Downloads\Github\Travelity-Mobile\Travelity.RefitAbstractions\bin\Debug\netstandard2.1\Travelity.RefitAbstractions.dll
+C:\Users\msh\Downloads\Github\Travelity-Mobile\Travelity.RefitAbstractions\bin\Debug\netstandard2.1\Travelity.RefitAbstractions.pdb
+C:\Users\msh\Downloads\Github\Travelity-Mobile\Travelity.RefitAbstractions\bin\Debug\netstandard2.1\Travelity.Abstractions.dll
+C:\Users\msh\Downloads\Github\Travelity-Mobile\Travelity.RefitAbstractions\bin\Debug\netstandard2.1\Travelity.Abstractions.pdb
+C:\Users\msh\Downloads\Github\Travelity-Mobile\Travelity.RefitAbstractions\obj\Debug\netstandard2.1\Travelity.RefitAbstractions.csproj.AssemblyReference.cache
+C:\Users\msh\Downloads\Github\Travelity-Mobile\Travelity.RefitAbstractions\obj\Debug\netstandard2.1\Travelity.RefitAbstractions.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\msh\Downloads\Github\Travelity-Mobile\Travelity.RefitAbstractions\obj\Debug\netstandard2.1\Travelity.RefitAbstractions.AssemblyInfoInputs.cache
+C:\Users\msh\Downloads\Github\Travelity-Mobile\Travelity.RefitAbstractions\obj\Debug\netstandard2.1\Travelity.RefitAbstractions.AssemblyInfo.cs
+C:\Users\msh\Downloads\Github\Travelity-Mobile\Travelity.RefitAbstractions\obj\Debug\netstandard2.1\Travelity.RefitAbstractions.csproj.CoreCompileInputs.cache
+C:\Users\msh\Downloads\Github\Travelity-Mobile\Travelity.RefitAbstractions\obj\Debug\netstandard2.1\Travelity.RefitAbstractions.csproj.CopyComplete
+C:\Users\msh\Downloads\Github\Travelity-Mobile\Travelity.RefitAbstractions\obj\Debug\netstandard2.1\Travelity.RefitAbstractions.dll
+C:\Users\msh\Downloads\Github\Travelity-Mobile\Travelity.RefitAbstractions\obj\Debug\netstandard2.1\Travelity.RefitAbstractions.pdb
