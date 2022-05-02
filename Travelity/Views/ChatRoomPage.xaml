@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Travelity.Views.ChatRoomPage"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:controls="clr-namespace:Travelity.Control"
+             xmlns:Template="clr-namespace:Travelity.Templates"
+             xmlns:models="clr-namespace:Travelity.Models"
+             xmlns:viewModels="clr-namespace:Travelity.ViewModel.ChatViewModels"
+             xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             NavigationPage.HasNavigationBar="False">
+    <ContentView.BindingContext>
+        <viewModels:ChatRoomViewModel></viewModels:ChatRoomViewModel>
+    </ContentView.BindingContext>
+    <ContentView.Resources>
+        <Template:ChatRoomDisplayNameDataTemplateSelector x:Key="ChatRoomDisplayNameSelector"></Template:ChatRoomDisplayNameDataTemplateSelector>
+    </ContentView.Resources>
+    <controls:Background Padding="0">
+        <Grid RowDefinitions="60,50,Auto">
+            <Grid Grid.Row="0"
+                  Padding="0,10,0,0"
+                  ColumnDefinitions="*,*,Auto">
+                <Grid Grid.Column="0">
+                    <Label  Text="Inbox"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"
+                            FontSize="25"
+                            Style="{StaticResource PageHeader}"
+                            FontAttributes="Bold">
+
+                    </Label>
+                </Grid>
+                <Grid Grid.Column="2">
+                    <StackLayout Orientation="Horizontal"
+                                 Spacing="2">
+                        <StackLayout Orientation="Horizontal"
+                                     Spacing="2"
+                                     Margin="0">
+                            <Image Source="icon_group.png"
+                                   HeightRequest="30"
+                                   xct:IconTintColorEffect.TintColor="{StaticResource Primary}"
+                                   WidthRequest="30"></Image>
+                            <Label Text="Friends"
+                                   TextColor="{StaticResource Primary}"
+                                   FontSize="17"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"
+                                   WidthRequest="70"></Label>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="View_FriendsList"></TapGestureRecognizer>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+
+
+                    </StackLayout>
+
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="1"
+                  Padding="20,0,20,0">
+                <Frame Padding="5"
+                       Margin="0"
+                       BackgroundColor="#181E37"
+                       HasShadow="False"
+                       BorderColor="Transparent"
+                       CornerRadius="10"
+                       HeightRequest="30">
+                    <SearchBar BackgroundColor="Transparent"
+                               x:Name="ChatRoom_Search"
+                               Placeholder="Search "
+                               TextChanged="ChatRoom_TextChanged"
+                               CancelButtonColor="{StaticResource Primary}" />
+                </Frame>
+            </Grid>
+
+            <StackLayout Grid.Row="2">
+
+                <Grid Padding="10"
+                      RowDefinitions="*">
+                    <Grid Grid.Row="0"
+                          xct:StateLayout.CurrentState="{Binding MainState}"
+                          xct:StateLayout.AnimateStateChanges="True">
+
+                        <xct:StateLayout.StateViews>
+
+                            <xct:StateView StateKey="Empty"
+                                           VerticalOptions="FillAndExpand"
+                                           HorizontalOptions="FillAndExpand">
+                                <Grid HorizontalOptions="FillAndExpand"
+                                      VerticalOptions="FillAndExpand"
+                                      RowDefinitions="*,Auto,Auto">
+                                    <ListView Margin="0"
+                                              Grid.Row="0">
+                                    </ListView>
+                                    <StackLayout Grid.Row="0"
+                                                 HorizontalOptions="FillAndExpand"
+                                                 VerticalOptions="FillAndExpand">
+                                        <lottie:AnimationView x:Name="TravelityLoading"
+                                                              AnimationSource="Url"
+                                                              Animation="https://assets7.lottiefiles.com/packages/lf20_p5yomfw6.json"
+                                                              AutoPlay="True"
+                                                              HorizontalOptions="FillAndExpand"
+                                                              VerticalOptions="FillAndExpand"
+                                                              RepeatMode="Infinite"
+                                                              WidthRequest="160"
+                                                              HeightRequest="160">
+
+
+                                        </lottie:AnimationView>
+                                        <StackLayout HorizontalOptions="CenterAndExpand"
+                                                     VerticalOptions="FillAndExpand">
+                                            <Label Text="No Conversation Yet!"
+                                                   HorizontalTextAlignment="Center"
+                                                   TextColor="White"
+                                                   FontSize="Large"></Label>
+                                            <Label Text="Looking a little lonely in here."
+                                                   HorizontalTextAlignment="Center"
+                                                   TextColor="Gray"
+                                                   FontSize="Medium"></Label>
+                                            <Button Text="Start A Chat"
+                                                    BackgroundColor="Transparent"
+                                                    TextColor="{StaticResource Primary}"
+                                                    Clicked="Add_NewChat_Button"
+                                                    FontSize="Medium">
+
+                                            </Button>
+
+                                        </StackLayout>
+
+
+                                    </StackLayout>
+                                </Grid>
+
+                            </xct:StateView>
+                        </xct:StateLayout.StateViews>
+                        <ListView ItemsSource="{Binding ChatRooms, Mode=TwoWay}"
+                                  IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                                  RefreshCommand="{Binding RefreshCommand}"
+                                  IsPullToRefreshEnabled="{Binding IsBusy, Mode=OneWay}"
+                                  x:Name="ListviewChatrooms"
+                                  ItemTemplate="{StaticResource ChatRoomDisplayNameSelector}"
+                                  SeparatorVisibility="None"
+                                  ItemTapped="ChatRoomSelected"
+                                  VerticalScrollBarVisibility="Never"
+                                  HasUnevenRows="True">
+
+
+
+                        </ListView>
+
+                    </Grid>
+                    <AbsoluteLayout HorizontalOptions="EndAndExpand"
+                                    VerticalOptions="EndAndExpand">
+
+
+                        <Button BackgroundColor="{StaticResource Primary}"
+                                BorderColor="{StaticResource Primary}"
+                                TextColor="White"
+                                CornerRadius="30"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Center"
+                                WidthRequest="60"
+                                FontAttributes="Bold"
+                                FontFamily="AharoniFont.tff"
+                                HeightRequest="60"
+                                Text="+"
+                                FontSize="30"
+                                Clicked="Add_NewChat_Button"
+                                TextTransform="None">
+                        </Button>
+                    </AbsoluteLayout>
+
+                </Grid>
+            </StackLayout>
+
+        </Grid>
+
+    </controls:Background>
+
+</ContentView>

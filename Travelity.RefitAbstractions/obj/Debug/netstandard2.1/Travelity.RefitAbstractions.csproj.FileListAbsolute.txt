@@ -1,0 +1,13 @@
+C:\Travelity Cloud\Travelity\Travelity.RefitAbstractions\bin\Debug\netstandard2.1\Travelity.RefitAbstractions.deps.json
+C:\Travelity Cloud\Travelity\Travelity.RefitAbstractions\bin\Debug\netstandard2.1\Travelity.RefitAbstractions.dll
+C:\Travelity Cloud\Travelity\Travelity.RefitAbstractions\bin\Debug\netstandard2.1\Travelity.RefitAbstractions.pdb
+C:\Travelity Cloud\Travelity\Travelity.RefitAbstractions\bin\Debug\netstandard2.1\Travelity.Abstractions.dll
+C:\Travelity Cloud\Travelity\Travelity.RefitAbstractions\bin\Debug\netstandard2.1\Travelity.Abstractions.pdb
+C:\Travelity Cloud\Travelity\Travelity.RefitAbstractions\obj\Debug\netstandard2.1\Travelity.RefitAbstractions.csproj.AssemblyReference.cache
+C:\Travelity Cloud\Travelity\Travelity.RefitAbstractions\obj\Debug\netstandard2.1\Travelity.RefitAbstractions.GeneratedMSBuildEditorConfig.editorconfig
+C:\Travelity Cloud\Travelity\Travelity.RefitAbstractions\obj\Debug\netstandard2.1\Travelity.RefitAbstractions.AssemblyInfoInputs.cache
+C:\Travelity Cloud\Travelity\Travelity.RefitAbstractions\obj\Debug\netstandard2.1\Travelity.RefitAbstractions.AssemblyInfo.cs
+C:\Travelity Cloud\Travelity\Travelity.RefitAbstractions\obj\Debug\netstandard2.1\Travelity.RefitAbstractions.csproj.CoreCompileInputs.cache
+C:\Travelity Cloud\Travelity\Travelity.RefitAbstractions\obj\Debug\netstandard2.1\Travelity.RefitAbstractions.csproj.CopyComplete
+C:\Travelity Cloud\Travelity\Travelity.RefitAbstractions\obj\Debug\netstandard2.1\Travelity.RefitAbstractions.dll
+C:\Travelity Cloud\Travelity\Travelity.RefitAbstractions\obj\Debug\netstandard2.1\Travelity.RefitAbstractions.pdb

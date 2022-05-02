@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:views="clr-namespace:Travelity.Views.Content.Notification_Content"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="Travelity.Views.Content.NotificationPage">
+    <ScrollView>
+
+        <Grid BackgroundColor="#191a1f"
+              RowDefinitions="60,*,10">
+            <Grid Grid.Row="0"
+                  ColumnDefinitions="85,*,85">
+                <Grid Grid.Column="0">
+                    <ImageButton Source="icon_arrowback.png"
+                                 Aspect="AspectFit"
+                                 BackgroundColor="#191a1f"
+                                 CornerRadius="10"
+                                 WidthRequest="30"
+                                 HeightRequest="30"
+                                 Padding="3"
+                                 BorderColor="DarkGray"
+                                 BorderWidth="2"
+                                 VerticalOptions="Center"
+                                 Margin="20,0,0,0"
+                                 HorizontalOptions="Start"
+                                 Clicked="BackButton">
+
+                    </ImageButton>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Label  Text="Notification"
+                            VerticalOptions="Center"
+                            MaxLines="2"
+                            HorizontalOptions="Center"
+                            FontSize="20"
+                            Style="{StaticResource PageHeader}"
+                            FontAttributes="Bold">
+
+                    </Label>
+                </Grid>
+                <Grid Grid.Column="2">
+
+                    <ImageButton Source="icon_more_horiz_outlined"
+                                 Aspect="AspectFit"
+                                 BackgroundColor="#191a1f"
+                                 CornerRadius="10"
+                                 HeightRequest="30"
+                                 Padding="3"
+                                 BorderColor="DarkGray"
+                                 BorderWidth="0"
+                                 VerticalOptions="Center"
+                                 Margin="20,0,0,0"
+                                 HorizontalOptions="Center">
+
+                    </ImageButton>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="1">
+
+                <xct:TabView  IsSwipeEnabled="True" x:Name="NotificationTabView">
+
+                    <xct:TabViewItem Text="Activity"
+                                     ControlTemplate="{StaticResource TabItemTemplateContent}"
+                                     Style="{StaticResource TabItemStyle}">
+                        <views:ActivityView></views:ActivityView>
+                    </xct:TabViewItem>
+
+                    <xct:TabViewItem Text="Friend Requests"
+                                     ControlTemplate="{StaticResource TabItemTemplateContent}"
+                                     Style="{StaticResource TabItemStyle}">
+                        <views:FriendRequestView></views:FriendRequestView>
+                    </xct:TabViewItem>
+
+
+                </xct:TabView>
+
+            </Grid>
+
+
+        </Grid>
+    </ScrollView>
+</ContentPage>

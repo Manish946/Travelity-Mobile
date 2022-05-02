@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Travelity.Views.HomePage"
+             xmlns:viewModels="clr-namespace:Travelity.ViewModel"
+             xmlns:controls="clr-namespace:Travelity.Control"
+             xmlns:CI="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms">
+
+    <ContentView.BindingContext>
+        <viewModels:MainViewModel></viewModels:MainViewModel>
+    </ContentView.BindingContext>
+
+    <Grid>
+
+        <ScrollView VerticalScrollBarVisibility="Never">
+            <controls:Background Padding="0">
+                <Grid  xct:StateLayout.CurrentState="{Binding MainState}"
+                       xct:StateLayout.AnimateStateChanges="True">
+                    <xct:StateLayout.StateViews>
+                        <xct:StateView StateKey="Loading"
+                                       HorizontalOptions="FillAndExpand"
+                                       VerticalOptions="FillAndExpand">
+                            <lottie:AnimationView x:Name="TravelityLoading"
+                                                  AnimationSource="Url"
+                                                  Animation="https://assets1.lottiefiles.com/packages/lf20_af77tbqx.json"
+                                                  AutoPlay="True"
+                                                  HorizontalOptions="CenterAndExpand"
+                                                  VerticalOptions="CenterAndExpand"
+                                                  RepeatMode="Infinite"
+                                                  WidthRequest="160"
+                                                  HeightRequest="160">
+
+                            </lottie:AnimationView>
+                        </xct:StateView>
+                    </xct:StateLayout.StateViews>
+                    <StackLayout Padding="20">
+
+
+
+                        <!--TOP INTRO AND IMAGE-->
+                        <Grid ColumnDefinitions="*,Auto"
+                              xct:StateLayout.CurrentState="{Binding MainState}"
+                              HorizontalOptions="Fill">
+
+                            <StackLayout>
+                                <Label  Text="Dashboard"
+                                        FontSize="25"
+                                        Style="{StaticResource PageHeader}"
+                                        FontAttributes="Bold">
+
+                                </Label>
+                                <Label Text="Change the way you travel, make it easier."
+                                       Style="{StaticResource PageSubHeader}"
+                                       FontAttributes="Bold"></Label>
+                            </StackLayout>
+
+                            <ImageButton WidthRequest="55"
+                                         HeightRequest="55"
+                                         Aspect="AspectFill"
+                                         Grid.Column="1"
+                                         CornerRadius="30"
+                                         Padding="0"
+                                         xct:TouchEffect.PressedScale="1.05"
+                                         Clicked="ProfileButton_Click"
+                                         Source="{Binding CurrentUser.profilePicture}">
+
+                            </ImageButton>
+
+
+                        </Grid>
+                        <Label  Text="{Binding CurrentUser.firstName,StringFormat='Hello, {0}'}"
+                                Style="{StaticResource SectionDetail}"
+                                FontAttributes="Bold">
+
+                        </Label>
+                        <Grid>
+                            <StackLayout>
+
+                            </StackLayout>
+                        </Grid>
+
+                        <!--Active Travel-->
+
+                        <controls:ActiveBackground>
+                            <Grid RowDefinitions="Auto,Auto"
+                                  xct:StateLayout.CurrentState="{Binding MainState}"
+                                  ColumnDefinitions="*,Auto"
+                                  xct:TouchEffect.PressedScale="1.01">
+                                <StackLayout>
+                                    <Label Text="Active Travel"
+                                           Style="{StaticResource SectionHeader}"></Label>
+                                    <Label Text="Tokyo, Japan"
+                                           Style="{StaticResource SectionSubHeader}"
+                                           TextColor="White"></Label>
+                                </StackLayout>
+
+                                <Frame Grid.Row="0"
+                                       Grid.Column="1"
+                                       BorderColor="Transparent"
+                                       Padding="0"
+                                       Margin="0,0,0,0"
+                                       CornerRadius="8">
+                                    <Image Source="{Binding GroupCover}"
+                                           HeightRequest="80">
+                                    </Image>
+                                </Frame>
+
+
+                                <Label Grid.Row="1"
+                                       Style="{StaticResource SectionDetail}"
+                                       Text="Group Members"
+                                       Margin="0,5,0,0"></Label>
+
+                                <StackLayout Orientation="Horizontal"
+                                             Grid.Row="1"
+                                             Grid.Column="1"
+                                             HeightRequest="30"
+                                             HorizontalOptions="StartAndExpand"
+                                             VerticalOptions="Center">
+
+                                    <CI:CircleImage HeightRequest="30"
+                                                    Aspect="AspectFill"
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="Center"
+                                                    Source="{Binding FriendImage}">
+                                    </CI:CircleImage>
+
+                                    <CI:CircleImage HeightRequest="30"
+                                                    Aspect="AspectFill"
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="Center"
+                                                    Source="{Binding FriendImage2}">
+                                    </CI:CircleImage>
+
+
+
+                                </StackLayout>
+
+                            </Grid>
+                        </controls:ActiveBackground>
+
+                        <!-- User Groups -->
+                        <Label Style="{StaticResource SectionHeader}"
+                               Text="Your Travel Groups"
+                               TextColor="{StaticResource Primary}"
+                               Margin="0,10,0,10"></Label>
+
+                        <CarouselView ItemsSource="{Binding Groups}"
+                                      xct:StateLayout.CurrentState="{Binding MainState}"
+                                      HeightRequest="360"
+                                      x:Name="Group_CarouselView">
+                            <CarouselView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout>
+                                        
+                                    <controls:GradientFrame Padding="20">
+                                        <Grid RowDefinitions="50,40,100,100"
+                                              RowSpacing="10">
+                                            <!-- First Section-->
+                                            <Grid.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="CarouselView_GroupSelected" />
+                                            </Grid.GestureRecognizers>
+                                            <Grid ColumnDefinitions="*,Auto">
+                                                <StackLayout>
+                                                    <Label Text="{Binding Group.Name}"
+                                                           Style="{StaticResource SectionHeader}"></Label>
+                                                    <Label Text="{Binding Group.Destination}"
+                                                           Style="{StaticResource SectionDetail}"></Label>
+                                                </StackLayout>
+                                                <ImageButton Grid.Column="1"
+                                                             BackgroundColor="{StaticResource Primary}"
+                                                             HeightRequest="50"
+                                                             WidthRequest="50"
+                                                             CornerRadius="16"
+                                                             Padding="5"
+                                                             Source="icon_group.png">
+
+                                                </ImageButton>
+                                            </Grid>
+                                            <!-- Second Section-->
+                                            <Grid Grid.Row="1"
+                                                  ColumnDefinitions="*,*">
+                                                <StackLayout BindableLayout.ItemsSource="{Binding PeopleImages}"
+                                                             Orientation="Horizontal"
+                                                             Margin="13,0,0,0"
+                                                             BindableLayout.ItemTemplateSelector="{StaticResource PersonDataTemplateSelector}">
+
+                                                </StackLayout>
+
+                                                <StackLayout Spacing="0"
+                                                             Grid.Column="1">
+                                                    <Label MaxLines="1"
+                                                           LineBreakMode="MiddleTruncation"
+                                                           Text="{Binding PeopleAtGroup}"
+                                                           Style="{StaticResource SectionDetail}"
+                                                           TextColor="White"></Label>
+
+                                                    <Label Grid.Column="1"
+                                                           Text="Are In This Group"
+                                                           Style="{StaticResource SectionDetail}"></Label>
+                                                </StackLayout>
+
+                                            </Grid>
+
+
+
+                                            <!-- Third Section-->
+                                            <Grid Grid.Row="2"
+                                                  ColumnDefinitions="2*,*"
+                                                  ColumnSpacing="20"
+                                                  Margin="0,0,0,0">
+                                                <Frame Padding="0"
+                                                       CornerRadius="8"
+                                                       BorderColor="Transparent"
+                                                       HasShadow="True"
+                                                       IsClippedToBounds="True">
+
+                                                    <Image Source="{Binding Group.LocationThumbnail}"
+                                                           Aspect="AspectFill">
+
+                                                    </Image>
+                                                </Frame>
+                                                <Frame Padding="0"
+                                                       CornerRadius="8"
+                                                       BorderColor="Transparent"
+                                                       HasShadow="True"
+                                                       Grid.Column="1"
+                                                       IsClippedToBounds="True">
+
+                                                    <Image Aspect="AspectFill"
+                                                           Source="{Binding Group.MapThumbnail}"></Image>
+                                                </Frame>
+                                            </Grid>
+
+                                            <!-- Group Albums -->
+                                            <StackLayout Grid.Row="3">
+                                                <Label Style="{StaticResource SectionHeader}"
+                                                       Text="Group Albums"
+                                                       TextColor="DarkGray"></Label>
+                                                <StackLayout BindableLayout.ItemsSource="{Binding Group.Albums}"
+                                                             Orientation="Horizontal">
+
+                                                    <BindableLayout.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Frame Padding="0"
+                                                                   BorderColor="Transparent"
+                                                                   CornerRadius="8"
+                                                                   HasShadow="True">
+                                                                <Image Source="{Binding Image}"
+                                                                       Aspect="AspectFit"
+                                                                       HorizontalOptions="Start"
+                                                                       VerticalOptions="Start"
+                                                                       HeightRequest="70"></Image>
+
+                                                            </Frame>
+                                                        </DataTemplate>
+                                                    </BindableLayout.ItemTemplate>
+                                                </StackLayout>
+
+                                            </StackLayout>
+
+
+
+                                        </Grid>
+                                    </controls:GradientFrame>
+                                    </StackLayout>
+
+                                </DataTemplate>
+                            </CarouselView.ItemTemplate>
+
+                        </CarouselView>
+
+
+                    </StackLayout>
+                </Grid>
+
+            </controls:Background>
+
+        </ScrollView>
+
+    </Grid>
+
+</ContentView>

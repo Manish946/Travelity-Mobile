@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:helpers="clr-namespace:Travelity.Templates"
+             x:Class="Travelity.Views.Content.ChatPage"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:control="clr-namespace:Travelity.Control"
+             xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             xmlns:viewmodel="clr-namespace:Travelity.ViewModel.ChatViewModels"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <helpers:ChatTemplateSelector x:Key="MessageTemplateSelector"></helpers:ChatTemplateSelector>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.BindingContext>
+        <viewmodel:ChatViewModel></viewmodel:ChatViewModel>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+            
+        <control:Background Padding="2">
+            <Grid RowDefinitions="60,Auto,80"
+                  xct:StateLayout.CurrentState="Loading"
+                  xct:StateLayout.AnimateStateChanges="True">
+                <Grid Grid.Row="0"
+                      ColumnDefinitions="*,Auto,*">
+                    <Grid Grid.Column="0">
+                        <ImageButton Source="icon_arrowback.png"
+                                     Aspect="AspectFit"
+                                     BackgroundColor="#191a1f"
+                                     CornerRadius="10"
+                                     WidthRequest="30"
+                                     HeightRequest="30"
+                                     Padding="3"
+                                     BorderColor="DarkGray"
+                                     BorderWidth="2"
+                                     VerticalOptions="Center"
+                                     Margin="20,0,0,0"
+                                     HorizontalOptions="Start"
+                                     Clicked="BackButton">
+
+                        </ImageButton>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <Label  Text="CHAT"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Center"
+                                FontSize="25"
+                                Style="{StaticResource PageHeader}"
+                                FontAttributes="Bold">
+
+                        </Label>
+                    </Grid>
+                    <Grid Grid.Column="2">
+                        <ImageButton Source="icon_more_horiz_outlined"
+                                     Aspect="AspectFit"
+                                     BackgroundColor="#191a1f"
+                                     CornerRadius="10"
+                                     HeightRequest="30"
+                                     Padding="3"
+                                     BorderColor="DarkGray"
+                                     BorderWidth="0"
+                                     VerticalOptions="Center"
+                                     Margin="80,0,0,0"
+                                     HorizontalOptions="Center">
+
+                        </ImageButton>
+                    </Grid>
+                </Grid>
+
+
+                <Grid Grid.Row="1"
+                    
+                      >
+
+                    <ListView ItemsSource="{Binding Messages}"                                
+                              x:Name="MessagesListView"
+                              Margin="0"
+                              ItemTemplate="{StaticResource MessageTemplateSelector}"
+                              FlowDirection="RightToLeft"
+                              SeparatorColor="Transparent"
+                              VerticalOptions="FillAndExpand"
+                              HasUnevenRows="True"
+                              SelectionMode="Single"
+                              VerticalScrollBarVisibility="Never"
+                              SeparatorVisibility="None">
+                        <xct:StateLayout.StateViews>
+                            <xct:StateView StateKey="Loading"
+                                           HorizontalOptions="FillAndExpand"
+                                           VerticalOptions="FillAndExpand">
+                                <lottie:AnimationView x:Name="TravelityLoading"
+                                                      AnimationSource="Url"
+                                                      Animation="https://assets1.lottiefiles.com/packages/lf20_af77tbqx.json"
+                                                      AutoPlay="True"
+                                                      HorizontalOptions="CenterAndExpand"
+                                                      VerticalOptions="CenterAndExpand"
+                                                      RepeatMode="Infinite"
+                                                      WidthRequest="160"
+                                                      HeightRequest="160">
+
+                                </lottie:AnimationView>
+                            </xct:StateView>
+                        </xct:StateLayout.StateViews>
+                    </ListView>
+
+
+
+                </Grid>
+                <Grid Grid.Row="2">
+
+                    <control:GradientFrame >
+                        <Grid ColumnDefinitions="*,40"
+                              >
+                            <Entry x:Name="Entry_SendMessage"
+                                   Placeholder="Message..."
+                                   Grid.Column="0"
+                                   Keyboard="Chat"
+                                   Grid.Row="0"
+                                   ReturnType="Default">
+                            </Entry>
+
+                            <ImageButton xct:IconTintColorEffect.TintColor="{StaticResource Primary}"
+                                         BackgroundColor="White"
+                                         Source="icon_send_outlined.png"
+                                         CornerRadius="10"
+                                         Padding="5"
+                                         Grid.Row="0"
+                                         Grid.Column="1"
+                                         Clicked="SendMessage_Button">
+
+                            </ImageButton>
+                        </Grid>
+                    </control:GradientFrame>
+
+                </Grid>
+
+            </Grid>
+
+        </control:Background>
+
+    </ContentPage.Content>
+</ContentPage>

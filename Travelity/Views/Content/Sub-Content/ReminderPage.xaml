@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:Travelity.ViewModel.UserViewModels"
+             xmlns:models="clr-namespace:Travelity.Abstractions.Models;assembly=Travelity.Abstractions"
+             xmlns:progress="clr-namespace:ProgressRingControl.Forms.Plugin;assembly=ProgressRing.Forms.Plugin"
+             x:Class="Travelity.Views.Content.Sub_Content.ReminderPage">
+
+    <ContentView.Content>
+        <StackLayout>
+            <Button Text="UPLOAD"
+                    Clicked="Button_Clicked"></Button>
+            <ProgressBar x:Name="ProgressBar"></ProgressBar>
+            <progress:ProgressRing HeightRequest="90"
+                                   RingProgressColor="Orange"
+                                   Scale="2"
+                                   WidthRequest="90"
+                                   RingThickness="5"
+                                   x:Name="ProgressRingBar"></progress:ProgressRing>
+
+            <Label x:Name="downloadLink"></Label>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

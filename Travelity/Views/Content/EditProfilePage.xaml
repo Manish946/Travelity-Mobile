@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Travelity.Views.Content.EditProfilePage"
+             xmlns:viewModels="clr-namespace:Travelity.ViewModel.UserViewModels"
+             xmlns:Service="clr-namespace:Travelity.Service.FirebaseService"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.BindingContext>
+        <viewModels:EditUserViewModel></viewModels:EditUserViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <Service:FirestorageDB x:Key="FireStorageDB"></Service:FirestorageDB>
+
+    </ContentPage.Resources>
+    <ScrollView VerticalOptions="FillAndExpand">
+        <Grid RowDefinitions="*">
+
+
+            <Grid BackgroundColor="#191a1f"
+                  Grid.Row="0"
+                  RowSpacing="0"
+                  RowDefinitions="60,150,Auto">
+
+                <lottie:AnimationView x:Name="TravelitySucess"
+                                      Grid.RowSpan="3"
+                                      AnimationSource="Url"
+                                      Animation="https://assets8.lottiefiles.com/datafiles/jXqHQIXI6oO6V47/data.json"
+                                      AutoPlay="True"
+                                      IsVisible="{Binding OnSucessAnimation}"
+                                      HorizontalOptions="FillAndExpand"
+                                      VerticalOptions="FillAndExpand"
+                                      RepeatMode="Restart"
+                                      WidthRequest="90"
+                                      HeightRequest="90">
+
+                </lottie:AnimationView>
+                <Grid Grid.Row="0"
+                      Opacity="{Binding GridOpacity}"
+                      ColumnDefinitions="*,Auto,*">
+                    <Grid Grid.Column="0">
+                        <ImageButton Source="icon_arrowback.png"
+                                     Aspect="AspectFit"
+                                     BackgroundColor="#191a1f"
+                                     CornerRadius="10"
+                                     WidthRequest="30"
+                                     HeightRequest="30"
+                                     Padding="3"
+                                     BorderColor="DarkGray"
+                                     BorderWidth="2"
+                                     VerticalOptions="Center"
+                                     Margin="20,0,0,0"
+                                     HorizontalOptions="Start"
+                                     Clicked="BackButton">
+
+                        </ImageButton>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <Label  Text="Edit Profile"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Center"
+                                FontSize="25"
+                                Style="{StaticResource PageHeader}"
+                                FontAttributes="Bold">
+
+                        </Label>
+                    </Grid>
+                    <Grid Grid.Column="2">
+                        <Button BackgroundColor="{StaticResource Primary}"
+                                xct:ShadowEffect.Color="{StaticResource Primary}"
+                                xct:ShadowEffect.OffsetX="0"
+                                xct:ShadowEffect.Radius="50"
+                                Opacity="1"
+                                BorderColor="{StaticResource Primary}"
+                                BorderWidth="2"
+                                CornerRadius="15"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Center"
+                                WidthRequest="70"
+                                FontAttributes="Bold"
+                                FontFamily="AharoniFont.tff"
+                                HeightRequest="40"
+                                Margin="20,0,0,0"
+                                Text="Done"
+                                Clicked="SaveButton"
+                                Command="{Binding SaveEditCommand}"
+                                TextColor="White"
+                                TextTransform="None">
+
+                        </Button>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="1"
+                      Opacity="{Binding GridOpacity}"
+                      VerticalOptions="Center"
+                      HorizontalOptions="Center">
+
+                    <Grid
+                        HorizontalOptions="CenterAndExpand"
+                          VerticalOptions="CenterAndExpand">
+
+                        <Grid HorizontalOptions="CenterAndExpand"
+                              VerticalOptions="CenterAndExpand"
+                              xct:StateLayout.CurrentState="{Binding UploadState}"
+                              xct:StateLayout.AnimateStateChanges="True">
+
+                            <ImageButton WidthRequest="140"
+                                         HeightRequest="140"
+                                         Aspect="AspectFill"
+                                         BackgroundColor="Transparent"
+                                         CornerRadius="120"
+                                         Padding="0"
+                                         xct:TouchEffect.PressedScale="1.05"
+                                         Source="{Binding CurrentUser.profilePicture}">
+                            </ImageButton>
+                            <AbsoluteLayout HorizontalOptions="EndAndExpand"
+                                            Opacity="{Binding GridOpacity}"
+                                            VerticalOptions="EndAndExpand">
+                                <StackLayout xct:TouchEffect.PressedScale="1.05">
+
+                                    <Frame CornerRadius="20"
+                                           HeightRequest="20"
+                                           WidthRequest="20"
+                                           Padding="10">
+
+                                        <Image Source="https://www.rawshorts.com/freeicons/wp-content/uploads/2017/01/media-pict-camera.png"
+                                               HeightRequest="20"
+                                               WidthRequest="20">
+
+                                        </Image>
+
+                                    </Frame>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="ChangeProfile"></TapGestureRecognizer>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+
+                            </AbsoluteLayout>
+
+
+                            <xct:StateLayout.StateViews>
+                                <xct:StateView StateKey="Loading"
+                                               HorizontalOptions="FillAndExpand"
+                                               VerticalOptions="FillAndExpand">
+                                    <Grid>
+
+                                        <lottie:AnimationView x:Name="TravelityLoading"
+                                                              AnimationSource="Url"
+                                                              Animation="https://assets1.lottiefiles.com/packages/lf20_8ssLLI.json"
+                                                              AutoPlay="True"
+                                                              HorizontalOptions="CenterAndExpand"
+                                                              VerticalOptions="CenterAndExpand"
+                                                              RepeatMode="Infinite"
+                                                              WidthRequest="160"
+                                                              HeightRequest="160">
+
+                                        </lottie:AnimationView>
+                                    </Grid>
+
+                                </xct:StateView>
+                            </xct:StateLayout.StateViews>
+                        </Grid>
+
+                    </Grid>
+
+                </Grid>
+
+                <Grid Grid.Row="2"
+                      x:Name="EditProfileGrid"
+                      Opacity="{Binding GridOpacity}">
+                    <StackLayout Padding="35">
+                        <StackLayout Style="{StaticResource FormStack}">
+                            <Label Text="FIRST NAME"
+                                   TextColor="{StaticResource Primary}"
+                                   Style="{StaticResource FormTitle}"></Label>
+                            <Entry  Text="{Binding CurrentUser.firstName, Mode=TwoWay}"
+                                    TextColor="White"
+                                    Style="{StaticResource FormEditor}"></Entry>
+
+                        </StackLayout>
+                        <StackLayout Style="{StaticResource FormStack}">
+                            <Label Text="LAST NAME"
+                                   TextColor="{StaticResource Primary}"
+                                   Style="{StaticResource FormTitle}"></Label>
+                            <Entry  Text="{Binding CurrentUser.lastName, Mode=TwoWay}"
+                                    TextColor="White"
+                                    Style="{StaticResource FormEditor}"></Entry>
+
+                        </StackLayout>
+
+                        <StackLayout Style="{StaticResource FormStack}">
+                            <Label Text="YOUR EMAIL"
+                                   TextColor="{StaticResource Primary}"
+                                   Style="{StaticResource FormTitle}"></Label>
+                            <Entry  Text="{Binding CurrentUser.email, Mode=TwoWay}"
+                                    IsEnabled="False"
+                                    Style="{StaticResource FormEditor}"></Entry>
+
+                        </StackLayout>
+
+                        <StackLayout Style="{StaticResource FormStack}">
+                            <Label Text="YOUR PASSWORD"
+                                   Style="{StaticResource FormTitle}"
+                                   TextColor="{StaticResource Primary}"></Label>
+                            <Entry Text="{Binding CurrentUser.password,StringFormat='{0} + password', Mode=TwoWay}"
+                                   IsEnabled="False"
+                                   IsPassword="True"
+                                   Style="{StaticResource FormEditor}"></Entry>
+
+                        </StackLayout>
+                        <StackLayout Style="{StaticResource FormStack}">
+                            <Label Text="ID"
+                                   TextColor="{StaticResource Primary}"
+                                   Style="{StaticResource FormTitle}"></Label>
+                            <Entry  Text="{Binding CurrentUser.id, Mode=TwoWay}"
+                                    IsEnabled="False"
+                                    Style="{StaticResource FormEditor}"></Entry>
+
+                        </StackLayout>
+                        <StackLayout Style="{StaticResource FormStack}">
+                            <Label Text="ABOUT ME"
+                                   TextColor="{StaticResource Primary}"
+                                   Style="{StaticResource FormTitle}"></Label>
+                            <Entry  Text="{Binding CurrentUser.about, Mode=TwoWay}"
+                                    TextColor="White"
+                                    x:Name="aa"
+                                    Style="{StaticResource FormEditor}"></Entry>
+
+                        </StackLayout>
+                    </StackLayout>
+                </Grid>
+            </Grid>
+
+        </Grid>
+    </ScrollView>
+</ContentPage>

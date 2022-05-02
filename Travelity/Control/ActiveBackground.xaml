@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Frame xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       CornerRadius="16"
+       HasShadow="true"
+       x:Class="Travelity.Control.ActiveBackground">
+    <Frame.Background>
+        <LinearGradientBrush>
+            <GradientStop Color="{StaticResource Primary}"
+                          Offset="0.05"></GradientStop>
+            <GradientStop Color="#212c4d"
+                          Offset="0.4"></GradientStop>
+            <GradientStop Color="#181B21"
+                          Offset="0.5"></GradientStop>
+            <GradientStop Color="#212c4d"
+                          Offset="0.5"></GradientStop>
+            <GradientStop Color="#212c4d"
+                          Offset="0.6"></GradientStop>
+            <GradientStop Color="{StaticResource Primary}"
+                          Offset="0.9"
+                          
+                          ></GradientStop>
+
+        </LinearGradientBrush>
+    </Frame.Background>
+</Frame>

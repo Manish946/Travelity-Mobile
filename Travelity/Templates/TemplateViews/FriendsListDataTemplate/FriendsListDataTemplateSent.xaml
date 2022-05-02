@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms"
+              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              x:Class="Travelity.Templates.TemplateViews.FriendsListDataTemplate.FriendsListDataTemplateSent">
+    <Grid RowDefinitions="*"
+          BackgroundColor="#10152A"
+          Padding="0,5,0,5">
+        
+    <StackLayout Orientation="Horizontal"
+                     MinimumHeightRequest="50"
+                     Grid.Row="0"
+                 >
+            <Image Source="{Binding profilePicture}"
+                   HeightRequest="50"
+                   VerticalOptions="Center"
+                   Aspect="AspectFill"
+                   HorizontalOptions="Center"
+                   WidthRequest="50"
+                   xct:TouchEffect.PressedScale="1.01">
+                <Image.Clip>
+                    <RoundRectangleGeometry  Rect="0,0,50,50"
+                                             CornerRadius="25">
+                    </RoundRectangleGeometry>
+                </Image.Clip>
+            </Image>
+
+            <Label Text="{Binding fullName}"
+               TextColor="White"
+               FontSize="15"
+               HorizontalOptions="StartAndExpand"
+               VerticalOptions="CenterAndExpand"></Label>
+
+        <Button BackgroundColor="OrangeRed"
+                x:Name="SendRequestButton"
+                BorderColor="OrangeRed"
+                BorderWidth="2"
+                HeightRequest="30"
+                CornerRadius="25"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                FontAttributes="Bold"
+                Clicked="SendRequestButton_FromSent"
+                FontFamily="AharoniFont.tff"
+                FontSize="8"
+                Text="Cancel"
+                TextColor="White"
+                TextTransform="None">
+
+        </Button>
+
+    </StackLayout>
+    </Grid>
+
+</ViewCell>

@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms"
+          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+          xmlns:views="clr-namespace:Travelity.ViewModel.ChatViewModels"
+          xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+          x:Class="Travelity.Templates.TemplateViews.ChatRoomDataTemplate.ChatRoomDisplayFirstObject">
+
+
+    <Grid RowDefinitions="*"
+          Padding="0,5,0,5"
+          BackgroundColor="#10152A"
+          VerticalOptions="Center"
+          Rotation="0">
+
+
+        <Frame BackgroundColor="#181E37"
+               CornerRadius="15"
+               Padding="10"
+               Grid.Row="0">
+
+            <Grid RowDefinitions="Auto"
+                  ColumnDefinitions="Auto,*,45">
+
+                <Image Source="{Binding User1.profilePicture}"
+                       HeightRequest="60"
+                       WidthRequest="60"
+                       Aspect="AspectFill"
+                       Grid.Column="0"
+                       Grid.Row="0"
+                       xct:TouchEffect.PressedScale="1.01"
+                       VerticalOptions="Start">
+                    <Image.Clip>
+                        <RoundRectangleGeometry  Rect="0,0,60,60"
+                                                 CornerRadius="30">
+                        </RoundRectangleGeometry>
+                    </Image.Clip>
+                </Image>
+
+                <StackLayout Grid.Row="0"
+                             Grid.Column="1">
+                    <Label TextColor="White"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="StartAndExpand"
+                           Text="{Binding User1.fullName, Mode=TwoWay}"
+                           FontAttributes="Bold">
+                    </Label>
+                    <Label Style="{StaticResource SectionDetail}"
+                           MaxLines="1"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="StartAndExpand"
+                           Text="{Binding LastMessageSent}"
+                           TextColor="DarkGray">
+
+                    </Label>
+                </StackLayout>
+
+                <StackLayout Grid.Row="0"
+                             Grid.Column="2">
+                    <Label Text="10:30"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="Center"
+                           Style="{StaticResource SectionDetail}"
+                           FontSize="10"></Label>
+                    <Frame Padding="5"
+                           HasShadow="False"
+                           CornerRadius="10"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           Margin="0"
+                           BackgroundColor="{StaticResource Primary}">
+                        <Label Text="1"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"
+                               Padding="5"></Label>
+                    </Frame>
+
+                </StackLayout>
+
+            </Grid>
+
+        </Frame>
+
+    </Grid>
+</ViewCell>

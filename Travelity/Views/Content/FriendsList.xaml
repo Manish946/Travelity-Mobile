@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Travelity.Views.Content.FriendsList"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:views="clr-namespace:Travelity.ViewModel.FriendsViewModels"
+             xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.BindingContext>
+        <views:FriendViewModel></views:FriendViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+
+        <Grid BackgroundColor="#191a1f"
+              RowDefinitions="60,Auto,Auto">
+            <Grid Grid.Row="0"
+                  ColumnDefinitions="*,*,*">
+                <Grid Grid.Column="0">
+                    <ImageButton Source="icon_arrowback.png"
+                                 Aspect="AspectFit"
+                                 BackgroundColor="#191a1f"
+                                 CornerRadius="10"
+                                 WidthRequest="30"
+                                 HeightRequest="30"
+                                 Padding="3"
+                                 BorderColor="DarkGray"
+                                 BorderWidth="2"
+                                 VerticalOptions="Center"
+                                 Margin="20,0,0,0"
+                                 HorizontalOptions="Start"
+                                 Clicked="GoBack_Button">
+
+                    </ImageButton>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Label  Text="Friends"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"
+                            FontSize="25"
+                            Style="{StaticResource PageHeader}"
+                            FontAttributes="Bold">
+
+                    </Label>
+                </Grid>
+                <Grid Grid.Column="2">
+                    <Button BackgroundColor="{StaticResource Primary}"
+                            xct:ShadowEffect.Color="{StaticResource Primary}"
+                            xct:ShadowEffect.OffsetX="0"
+                            xct:ShadowEffect.Radius="50"
+                            Opacity="1"
+                            BorderColor="{StaticResource Primary}"
+                            BorderWidth="2"
+                            CornerRadius="15"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"
+                            WidthRequest="70"
+                            FontAttributes="Bold"
+                            Clicked="AddNewFriend_Button"
+                            FontFamily="AharoniFont.tff"
+                            HeightRequest="40"
+                            Margin="20,0,0,0"
+                            Text="Add"
+                            TextColor="White"
+                            TextTransform="None">
+
+                    </Button>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="1"
+                  Padding="10"
+                  xct:StateLayout.CurrentState="{Binding MainState}"
+                  xct:StateLayout.AnimateStateChanges="True">
+
+                <xct:StateLayout.StateViews>
+
+                    <xct:StateView StateKey="Empty"
+                                   VerticalOptions="FillAndExpand"
+                                   HorizontalOptions="FillAndExpand">
+                        <Grid HorizontalOptions="FillAndExpand"
+                              VerticalOptions="FillAndExpand"
+                              RowDefinitions="*,Auto,Auto">
+                            <ListView Margin="0"
+                                      Grid.Row="0">
+                            </ListView>
+                            <StackLayout Grid.Row="0"
+                                         HorizontalOptions="FillAndExpand"
+                                         VerticalOptions="FillAndExpand">
+                                <lottie:AnimationView x:Name="TravelityLoading"
+                                                      AnimationSource="Url"
+                                                      Animation="https://assets7.lottiefiles.com/private_files/lf30_raf7vpd9.json"
+                                                      AutoPlay="True"
+                                                      HorizontalOptions="FillAndExpand"
+                                                      VerticalOptions="FillAndExpand"
+                                                      RepeatMode="Infinite"
+                                                      WidthRequest="160"
+                                                      HeightRequest="160">
+
+
+                                </lottie:AnimationView>
+                                <StackLayout HorizontalOptions="CenterAndExpand"
+                                             VerticalOptions="FillAndExpand">
+                                    <Label Text="Better Together"
+                                           HorizontalTextAlignment="Center"
+                                           TextColor="{StaticResource Primary}"
+                                           
+                                           FontSize="35"></Label>
+                                    <Label Text="Connect with friends to chat and plan a trip together."
+                                           MaxLines="3"
+                                           HorizontalTextAlignment="Center"
+                                           TextColor="Gray"
+                                           FontSize="Medium"></Label>
+                                    <Button Text="Connect"
+                                            BackgroundColor="{StaticResource Primary}"
+                                            HorizontalOptions="Center"
+                                            VerticalOptions="Center"
+                                            TextColor="White"
+                                            Clicked="AddNewFriend_Button"
+                                            FontSize="Small">
+
+                                    </Button>
+
+                                </StackLayout>
+
+
+                            </StackLayout>
+                        </Grid>
+
+                    </xct:StateView>
+                </xct:StateLayout.StateViews>
+                <RefreshView Refreshing="RefreshView_Refreshing"
+                             RefreshColor="{StaticResource Primary}"
+                             IsRefreshing="False"
+                             x:Name="Friend_RefreshView">
+                    <CollectionView ItemsSource="{Binding FriendsCollection}">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Vertical"></LinearItemsLayout>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Orientation="Horizontal"
+                                             Padding="10">
+                                    <Image Source="{Binding profilePicture}"
+                                           HeightRequest="50"
+                                           Aspect="AspectFill"
+                                           WidthRequest="50"
+                                           xct:TouchEffect.PressedScale="1.01"
+                                           VerticalOptions="Start">
+                                        <Image.Clip>
+                                            <RoundRectangleGeometry  Rect="0,0,50,50"
+                                                                     CornerRadius="25">
+                                            </RoundRectangleGeometry>
+                                        </Image.Clip>
+                                    </Image>
+
+                                    <Label Text="{Binding fullName}"
+                                           TextColor="White"
+                                           FontSize="19"
+                                           HorizontalOptions="StartAndExpand"
+                                           VerticalOptions="CenterAndExpand"></Label>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </RefreshView>
+            </Grid>
+
+        </Grid>
+
+
+
+
+    </ContentPage.Content>
+</ContentPage>

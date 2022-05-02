@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Travelity.Control"
+             xmlns:viewModel="clr-namespace:Travelity.ViewModel"
+             x:Class="Travelity.Views.LoginPage"
+             xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.BindingContext>
+        <viewModel:GoogleUserViewModel></viewModel:GoogleUserViewModel>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <controls:TabBackground Padding="0"
+                                    Margin="0">
+                <Grid>
+
+                    <Grid RowSpacing="0"
+                          Padding="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="90" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="200" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+
+
+                        <Grid Grid.Row="0" Padding="5,20,5,5">
+                            <Image Source="Travelity_Background_Logo.png"
+                                   x:Name="Background"
+                                   HeightRequest="75" />
+
+                        </Grid>
+
+                        <Grid Grid.Row="1" Grid.RowSpan="2">
+                            <lottie:AnimationView x:Name="TravelityLoading"
+                                                  AnimationSource="Url"
+                                                  Animation="https://assets2.lottiefiles.com/packages/lf20_q5pk6p1k.json"
+                                                  AutoPlay="True"
+                                                  HorizontalOptions="FillAndExpand"
+                                                  VerticalOptions="FillAndExpand"
+                                                  RepeatMode="Infinite"
+                                                  WidthRequest="160"
+                                                  IsVisible="{Binding ShowLoginAnimation}"
+                                                  HeightRequest="160">
+                            </lottie:AnimationView>
+                            <lottie:AnimationView x:Name="TravelityLoadingGoogle"
+                                                  AnimationSource="Url"
+                                                  Animation="https://assets1.lottiefiles.com/private_files/lf30_xRDQab.json"
+                                                  AutoPlay="True"
+                                                  Speed="2"
+                                                  HorizontalOptions="FillAndExpand"
+                                                  VerticalOptions="FillAndExpand"
+                                                  IsVisible="{Binding ShowGoogleAnimation}"
+                                                  RepeatMode="Restart"
+                                                  WidthRequest="560"
+                                                  HeightRequest="560">
+
+                            </lottie:AnimationView>
+                        </Grid>
+
+                        <ScrollView Grid.Row="3"
+                                    Padding="10">
+                            <StackLayout Spacing="20">
+
+
+                                <Button Text="Continue with Google"
+                                        CornerRadius="6"
+                                        ImageSource="icon_google.png"
+                                        BackgroundColor="White"
+                                        TextColor="DarkSlateGray"
+                                        TextTransform="None"
+                                        FontAttributes="Bold"
+                                        FontSize="20"
+                                        HeightRequest="50"
+                                        Margin="0,8,0,0"
+                                        x:Name="btnLogin"
+                                        Command="{Binding GoogleLoginCommand}" />
+
+
+                                <Label Text="By Continuing you agree Travelity's Terms of Services &amp; Privacy Policy"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"
+                                       TextColor="DarkGray"
+                                       HorizontalTextAlignment="Center"></Label>
+
+                            </StackLayout>
+                        </ScrollView>
+
+                    </Grid>
+                </Grid>
+
+            </controls:TabBackground>
+        </ScrollView>
+
+    </ContentPage.Content>
+
+</ContentPage>

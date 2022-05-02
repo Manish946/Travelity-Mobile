@@ -1,0 +1,15 @@
+C:\Travelity Cloud\Travelity\Travelity.RefitClient\bin\Debug\netstandard2.1\Travelity.RefitClient.deps.json
+C:\Travelity Cloud\Travelity\Travelity.RefitClient\bin\Debug\netstandard2.1\Travelity.RefitClient.dll
+C:\Travelity Cloud\Travelity\Travelity.RefitClient\bin\Debug\netstandard2.1\Travelity.RefitClient.pdb
+C:\Travelity Cloud\Travelity\Travelity.RefitClient\bin\Debug\netstandard2.1\Travelity.Abstractions.dll
+C:\Travelity Cloud\Travelity\Travelity.RefitClient\bin\Debug\netstandard2.1\Travelity.RefitAbstractions.dll
+C:\Travelity Cloud\Travelity\Travelity.RefitClient\bin\Debug\netstandard2.1\Travelity.RefitAbstractions.pdb
+C:\Travelity Cloud\Travelity\Travelity.RefitClient\bin\Debug\netstandard2.1\Travelity.Abstractions.pdb
+C:\Travelity Cloud\Travelity\Travelity.RefitClient\obj\Debug\netstandard2.1\Travelity.RefitClient.csproj.AssemblyReference.cache
+C:\Travelity Cloud\Travelity\Travelity.RefitClient\obj\Debug\netstandard2.1\Travelity.RefitClient.GeneratedMSBuildEditorConfig.editorconfig
+C:\Travelity Cloud\Travelity\Travelity.RefitClient\obj\Debug\netstandard2.1\Travelity.RefitClient.AssemblyInfoInputs.cache
+C:\Travelity Cloud\Travelity\Travelity.RefitClient\obj\Debug\netstandard2.1\Travelity.RefitClient.AssemblyInfo.cs
+C:\Travelity Cloud\Travelity\Travelity.RefitClient\obj\Debug\netstandard2.1\Travelity.RefitClient.csproj.CoreCompileInputs.cache
+C:\Travelity Cloud\Travelity\Travelity.RefitClient\obj\Debug\netstandard2.1\Travelity.RefitClient.csproj.CopyComplete
+C:\Travelity Cloud\Travelity\Travelity.RefitClient\obj\Debug\netstandard2.1\Travelity.RefitClient.dll
+C:\Travelity Cloud\Travelity\Travelity.RefitClient\obj\Debug\netstandard2.1\Travelity.RefitClient.pdb

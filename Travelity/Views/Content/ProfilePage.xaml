@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="Travelity.Views.Content.ProfilePage"
+             xmlns:viewModels="clr-namespace:Travelity.ViewModel"
+             
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.BindingContext>
+        <viewModels:MainViewModel></viewModels:MainViewModel>
+    </ContentPage.BindingContext>
+    <ScrollView>
+
+        <Grid BackgroundColor="#191a1f"
+              RowDefinitions="60,300,Auto">
+            <Grid Grid.Row="0"
+                  ColumnDefinitions="*,*,*">
+                <Grid Grid.Column="0">
+                    <ImageButton Source="icon_arrowback.png"
+                                 Aspect="AspectFit"
+                                 BackgroundColor="#191a1f"
+                                 CornerRadius="10"
+                                 WidthRequest="30"
+                                 HeightRequest="30"
+                                 Padding="3"
+                                 BorderColor="DarkGray"
+                                 BorderWidth="2"
+                                 VerticalOptions="Center"
+                                 Margin="20,0,0,0"
+                                 HorizontalOptions="Start"
+                                 Clicked="BackButton">
+
+                    </ImageButton>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Label  Text="Profile"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"
+                            FontSize="25"
+                            Style="{StaticResource PageHeader}"
+                            FontAttributes="Bold">
+
+                    </Label>
+                </Grid>
+                <Grid Grid.Column="2" >
+                    <Button BackgroundColor="#191a1f"
+                            BorderColor="{StaticResource Primary}"
+                            BorderWidth="2"
+                            TextColor="White"
+                            CornerRadius="15"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"
+                            WidthRequest="70"
+                            FontAttributes="Bold"
+                            FontFamily="AharoniFont.tff"
+                            HeightRequest="40"
+                            Margin="20,0,0,0"
+                            Text="Edit"
+                            Clicked="EditButton"
+                            TextTransform="None">
+
+                    </Button>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <StackLayout Orientation="Vertical"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center">
+                    <Grid RowDefinitions="150,*,*,*"
+                          HorizontalOptions="Center"
+                          VerticalOptions="Center">
+
+                        <Grid Grid.Row="0"
+                              HorizontalOptions="Center"
+                              VerticalOptions="Center">
+
+                            <ImageButton WidthRequest="140"
+                                         HeightRequest="140"
+                                         Aspect="AspectFill"
+                                         CornerRadius="70"
+                                         Padding="0"
+                                         xct:TouchEffect.PressedScale="1.05"
+                                         Source="{Binding CurrentUser.profilePicture}">
+                            </ImageButton>
+
+                        </Grid>
+                        <Grid Grid.Row="1"
+                              HorizontalOptions="Center"
+                              VerticalOptions="Center">
+                            <Label  Text="{Binding CurrentUser.fullName}"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center"
+                                    FontSize="35"
+                                    Style="{StaticResource PageHeader}"
+                                    FontAttributes="Bold">
+
+                            </Label>
+
+
+                        </Grid>
+                        <Grid Grid.Row="2"
+                              HorizontalOptions="Center"
+                              VerticalOptions="Center">
+                            <Label  Text="{Binding CurrentUser.email}"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center"
+                                    FontSize="15"
+                                    TextColor="{StaticResource Primary}"
+                                    Style="{StaticResource SectionHeader}"
+                                    FontAttributes="Bold">
+
+                            </Label>
+
+
+                        </Grid>
+                        <Grid Grid.Row="3"
+                              HorizontalOptions="Center"
+                              VerticalOptions="Center">
+                            <Button BackgroundColor="#191a1f"
+                                    BorderColor="{StaticResource Primary}"
+                                    BorderWidth="2"
+                                    CornerRadius="15"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center"
+                                    TextColor="White"
+                                    WidthRequest="70"
+                                    FontAttributes="Bold"
+                                    FontFamily="AharoniFont.tff"
+                                    HeightRequest="40"
+                                    Text="Edit"
+                                    Clicked="EditButton"
+                                    TextTransform="None">
+
+                            </Button>
+
+                        </Grid>
+
+                    </Grid>
+
+                </StackLayout>
+
+            </Grid>
+
+            <Grid Grid.Row="2"
+                  >
+                <StackLayout Padding="25" Spacing="20">
+
+                    <Frame Style="{StaticResource StackFrame}">
+                        
+                    <StackLayout Orientation="Horizontal" Style="{StaticResource StackButton}">
+                        <Image Source="icon_profile.png" Style="{StaticResource StackImage}">
+                            
+                        </Image>
+
+                        <Label Text="Show me as away" Style="{StaticResource StackText}"   >
+                            
+                        </Label>
+                    </StackLayout>
+                    </Frame>
+
+                    <Frame Style="{StaticResource StackFrame}">
+
+                        <StackLayout Orientation="Horizontal"
+                                     Style="{StaticResource StackButton}">
+                            <Image Source="icon_explore_outlined.png"
+                                   Style="{StaticResource StackImage}">
+
+                            </Image>
+
+                            <Label Text="My Travel"
+                                   Style="{StaticResource StackText}">
+
+                            </Label>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame Style="{StaticResource StackFrame}">
+
+                        <StackLayout Orientation="Horizontal"
+                                     Style="{StaticResource StackButton}">
+                            <Image Source="icon_group_outlined.png"
+                                   Style="{StaticResource StackImage}">
+
+                            </Image>
+
+                            <Label Text="Join A Group"
+                                   Style="{StaticResource StackText}">
+
+                            </Label>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame Style="{StaticResource StackFrame}">
+
+                        <StackLayout Orientation="Horizontal"
+                                     Style="{StaticResource StackButton}">
+                            <Image Source="icon_profile.png"
+                                   Style="{StaticResource StackImage}">
+
+                            </Image>
+
+                            <Label Text="Share Profile"
+                                   Style="{StaticResource StackText}">
+
+                            </Label>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="snackbar_button"></TapGestureRecognizer>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame Style="{StaticResource StackFrame}">
+
+                        <StackLayout Orientation="Horizontal"
+                                     Style="{StaticResource StackButton}">
+                            <Image Source="icon_logout_outlined.png"
+                                   Style="{StaticResource StackImage}">
+
+                            </Image>
+
+                            <Label Text="Logout"
+                                   x:Name="Logout_label"
+                                   Style="{StaticResource StackText}">
+
+                            </Label>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Logout_button"></TapGestureRecognizer>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                    </Frame>
+                    
+                </StackLayout>
+            </Grid>
+
+        </Grid>
+    </ScrollView>
+
+</ContentPage>

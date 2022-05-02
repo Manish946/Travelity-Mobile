@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "528667055294",
+    "firebase_url": "https://travelity-auth-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "travelity-auth",
+    "storage_bucket": "travelity-auth.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:528667055294:android:2399c16b91ba9371c67aef",
+        "android_client_info": {
+          "package_name": "com.companyname.travelity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "528667055294-21onvj3jl5p1bi96191fv74j0phicalb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.companyname.travelity",
+            "certificate_hash": "27dfb095ef5b12abf928f1c84c0dd9440132802c"
+          }
+        },
+        {
+          "client_id": "528667055294-u8dnkn1vnl2n3a4vdvr7dd9p2v7473hb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsQZsEO17W7BEBERoeY28wbryokgB4d6I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "528667055294-u8dnkn1vnl2n3a4vdvr7dd9p2v7473hb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "528667055294-153vuvht9vi6d32d16ad24ppli68niti.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.companyname.google-authentication"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

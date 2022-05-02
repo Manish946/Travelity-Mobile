@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:Travelity.ViewModel.UserViewModels"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             x:Class="Travelity.Views.Content.Notification_Content.FriendRequestView">
+
+    <ContentView.BindingContext>
+        <views:UserViewModel></views:UserViewModel>
+    </ContentView.BindingContext>
+
+    <Grid RowDefinitions="*,*"
+          xct:StateLayout.CurrentState="{Binding MainState}"
+          xct:StateLayout.AnimateStateChanges="True">
+        <xct:StateLayout.StateViews>
+
+            <xct:StateView StateKey="Empty"
+                           VerticalOptions="FillAndExpand"
+                           HorizontalOptions="FillAndExpand">
+                <Grid HorizontalOptions="FillAndExpand"
+                      VerticalOptions="FillAndExpand"
+                      RowDefinitions="*,Auto,Auto">
+                    <StackLayout Grid.Row="0"
+                                 HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="FillAndExpand">
+                        <lottie:AnimationView x:Name="TravelityLoading"
+                                              AnimationSource="Url"
+                                              Animation="https://assets7.lottiefiles.com/private_files/lf30_riewv8ea.json"
+                                              AutoPlay="True"
+                                              HorizontalOptions="FillAndExpand"
+                                              VerticalOptions="FillAndExpand"
+                                              RepeatMode="Infinite"
+                                              WidthRequest="160"
+                                              HeightRequest="160">
+
+
+                        </lottie:AnimationView>
+                        <StackLayout HorizontalOptions="CenterAndExpand"
+                                     VerticalOptions="FillAndExpand">
+                            <Label Text="No Friend Requests"
+                                   HorizontalTextAlignment="Center"
+                                   TextColor="{StaticResource Primary}"
+                                   FontSize="30"></Label>
+                            <Label Text="Any New Friend Requests Will Appear Here"
+                                   MaxLines="2"
+                                   HorizontalTextAlignment="Center"
+                                   TextColor="Gray"
+                                   FontSize="17"></Label>
+
+
+                        </StackLayout>
+
+
+                    </StackLayout>
+                </Grid>
+
+            </xct:StateView>
+        </xct:StateLayout.StateViews>
+        <StackLayout Spacing="10"
+                     Padding="10"
+                     Grid.Row="0"
+                     HorizontalOptions="CenterAndExpand"
+                     VerticalOptions="CenterAndExpand">
+
+
+
+            <ListView ItemsSource="{Binding UserFriendRequests}"
+                      IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                      RefreshCommand="{Binding RefreshFriendRequests}"
+                      SeparatorVisibility="None"
+                      IsPullToRefreshEnabled="True"
+                      VerticalScrollBarVisibility="Never"
+                      HasUnevenRows="True"
+                      SelectionMode="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="{Binding profilePicture}"
+                                       Aspect="AspectFill"
+                                       HeightRequest="50"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"
+                                       WidthRequest="50"
+                                       xct:TouchEffect.PressedScale="1.01">
+                                    <Image.Clip>
+                                        <RoundRectangleGeometry  Rect="0,0,50,50"
+                                                                 CornerRadius="25">
+                                        </RoundRectangleGeometry>
+                                    </Image.Clip>
+                                </Image>
+
+
+                                <Label Text="{Binding fullName}"
+                                       Style="{StaticResource SectionDetail}"
+                                       FontSize="15"
+                                       HorizontalOptions="StartAndExpand"
+                                       VerticalOptions="CenterAndExpand"></Label>
+
+                                <Button BackgroundColor="#3c74d5"
+                                        BorderColor="#3c74d5"
+                                        BorderWidth="2"
+                                        CornerRadius="15"
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="Center"
+                                        HeightRequest="35"
+                                        FontSize="12"
+                                        FontAttributes="Bold"
+                                        Clicked="Accept_FriendRequest"
+                                        FontFamily="AharoniFont.tff"
+                                        Text="Accept"
+                                        TextColor="White"
+                                        TextTransform="None">
+
+                                </Button>
+                                <Button BackgroundColor="OrangeRed"
+                                        BorderColor="OrangeRed"
+                                        BorderWidth="2"
+                                        HeightRequest="35"
+                                        CornerRadius="25"
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="Center"
+                                        FontAttributes="Bold"
+                                        Clicked="Decline_FriendRequest"
+                                        FontFamily="AharoniFont.tff"
+                                        FontSize="12"
+                                        Text="Decline"
+                                        TextColor="White"
+                                        TextTransform="None">
+                                </Button>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+    </Grid>
+
+</ContentView>

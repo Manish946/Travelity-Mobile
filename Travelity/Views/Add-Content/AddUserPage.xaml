@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:Travelity.ViewModel.UserViewModels"
+             x:Class="Travelity.Views.Add_Content.AddUserPage"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.BindingContext>
+        <viewmodels:AddUserViewModel></viewmodels:AddUserViewModel>
+    </ContentPage.BindingContext>
+
+        <ContentPage.Content>
+        <ScrollView VerticalOptions="FillAndExpand">
+
+            <Grid BackgroundColor="#191a1f"
+                  RowDefinitions="60,230,Auto">
+                
+                <Grid Grid.Row="0"
+                      ColumnDefinitions="*,*,*">
+                    
+                    <Grid Grid.Column="0">
+                        <ImageButton Source="icon_arrowback.png"
+                                     BindingContext="{StaticResource GoogleUserViewModel_Binding}"
+                                     Aspect="AspectFit"
+                                     BackgroundColor="#191a1f"
+                                     CornerRadius="10"
+                                     WidthRequest="30"
+                                     HeightRequest="30"
+                                     Padding="3"
+                                     BorderColor="DarkGray"
+                                     BorderWidth="2"
+                                     VerticalOptions="Center"
+                                     Margin="20,0,0,0"
+                                     HorizontalOptions="Start"
+                                     Command="{Binding GoogleLogoutCommand}"
+                                     Clicked="GoogleLogout_Button">
+
+                        </ImageButton>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <Label  Text="Register"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Center"
+                                FontSize="25"
+                                Style="{StaticResource PageHeader}"
+                                FontAttributes="Bold">
+
+
+                        </Label>
+                    </Grid>
+                    <Grid Grid.Column="2">
+                        <Button BackgroundColor="{StaticResource Primary}"
+                                xct:ShadowEffect.Color="{StaticResource Primary}"
+                                xct:ShadowEffect.OffsetX="0"
+                                xct:ShadowEffect.Radius="50"
+                                Opacity="1"
+                                BorderColor="{StaticResource Primary}"
+                                BorderWidth="2"
+                                CornerRadius="15"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Center"
+                                WidthRequest="70"
+                                FontAttributes="Bold"
+                                FontFamily="AharoniFont.tff"
+                                HeightRequest="40"
+                                Margin="20,0,0,0"
+                                Text="Done"
+                                Command="{Binding SaveCommand}"
+                                TextColor="White"
+                                TextTransform="None">
+
+                        </Button>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    
+                    <StackLayout Orientation="Vertical"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="Center">
+                        <lottie:AnimationView x:Name="TravelityLoadingGoogle"
+                                              AnimationSource="Url"
+                                              Animation="https://assets1.lottiefiles.com/private_files/lf30_xRDQab.json"
+                                              AutoPlay="True"
+                                              Speed="2"
+                                              HorizontalOptions="FillAndExpand"
+                                              VerticalOptions="FillAndExpand"
+                                              IsVisible="{Binding GoogleLoginAnimation}"
+                                              RepeatMode="Restart"
+                                              WidthRequest="560"
+                                              HeightRequest="560">
+
+                        </lottie:AnimationView>
+                        <Grid RowDefinitions="150,*,*,*"
+                              IsVisible="{Binding VisibleGrid}"
+                              HorizontalOptions="Center"
+                              VerticalOptions="Center">
+
+                            <Grid Grid.Row="0"
+                                  HorizontalOptions="Center"
+                                  VerticalOptions="Center"
+                                  xct:StateLayout.CurrentState="{Binding UploadState}"
+                                  xct:StateLayout.AnimateStateChanges="True">
+
+                                <ImageButton WidthRequest="140"
+                                             HeightRequest="140"
+                                             Aspect="AspectFill"
+                                             BackgroundColor="Transparent"
+                                             CornerRadius="75"
+                                             Padding="0"
+                                             xct:TouchEffect.PressedScale="1.05"
+                                             Source="{Binding User.profilePicture}">
+                                </ImageButton>
+                                <AbsoluteLayout HorizontalOptions="EndAndExpand"
+                                                Opacity="{Binding GridOpacity}"
+                                                VerticalOptions="EndAndExpand">
+                                    <StackLayout xct:TouchEffect.PressedScale="1.05">
+
+                                        <Frame CornerRadius="30"
+                                               HeightRequest="20"
+                                               WidthRequest="20"
+                                               BackgroundColor="White"
+                                               HasShadow="True"
+                                               Padding="10">
+
+                                            <!--<lottie:AnimationView x:Name="ChangePicture"
+                                                                  AnimationSource="Url"
+                                                                  Animation="https://assets4.lottiefiles.com/packages/lf20_RZhHtw.json"
+                                                                  AutoPlay="True"
+                                                                  HorizontalOptions="CenterAndExpand"
+                                                                  VerticalOptions="CenterAndExpand"
+                                                                  RepeatMode="Infinite"
+                                                                  HeightRequest="20"
+                                                                  WidthRequest="20">
+
+                                            </lottie:AnimationView>-->
+                                            <Image Source="https://www.rawshorts.com/freeicons/wp-content/uploads/2017/01/media-pict-camera.png"
+                                                   HeightRequest="20"
+                                                   WidthRequest="20">
+                                                
+                                            </Image>
+
+                                        </Frame>
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="ChangeProfile"></TapGestureRecognizer>
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>
+
+                                </AbsoluteLayout>
+                                <xct:StateLayout.StateViews>
+                                    <xct:StateView StateKey="Loading"
+                                                   HorizontalOptions="FillAndExpand"
+                                                   VerticalOptions="FillAndExpand">
+                                        <Grid>
+
+                                            <lottie:AnimationView x:Name="TravelityLoading"
+                                                                  AnimationSource="Url"
+                                                                  Animation="https://assets1.lottiefiles.com/packages/lf20_8ssLLI.json"
+                                                                  AutoPlay="True"
+                                                                  HorizontalOptions="CenterAndExpand"
+                                                                  VerticalOptions="CenterAndExpand"
+                                                                  RepeatMode="Infinite"
+                                                                  WidthRequest="160"
+                                                                  HeightRequest="160">
+
+                                            </lottie:AnimationView>
+                                        </Grid>
+
+                                    </xct:StateView>
+                                </xct:StateLayout.StateViews>
+                            </Grid>
+                            <Grid Grid.Row="1"
+                                  HorizontalOptions="Center"
+                                  VerticalOptions="Center">
+                                <Label  Text="{Binding User.email}"
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="Center"
+                                        FontSize="15"
+                                        TextColor="{StaticResource Primary}"
+                                        Style="{StaticResource SectionHeader}"
+                                        FontAttributes="Bold">
+
+                                </Label>
+
+
+                            </Grid>                            
+                        </Grid>
+
+                    </StackLayout>
+
+                </Grid>
+
+                <Grid Grid.Row="2"
+                      IsVisible="{Binding VisibleGrid}">
+                    <StackLayout Padding="35">
+                        <StackLayout Style="{StaticResource FormStack}" Spacing="0">
+                            <Label Text="First Name"
+                                   Style="{StaticResource FormTitle}"></Label>
+                            <Entry  Text="{Binding User.firstName, Mode=TwoWay}"
+                                    TextColor="White" 
+                                    Style="{StaticResource FormEditor}">                                
+                            </Entry>
+
+                        </StackLayout>
+
+                        <StackLayout Style="{StaticResource FormStack}"
+                                     Spacing="0">
+                            <Label Text="Last Name"
+                                   Style="{StaticResource FormTitle}"></Label>
+                            <Entry  Text="{Binding User.lastName, Mode=TwoWay}"
+                                    TextColor="White"
+                                    Style="{StaticResource FormEditor}"></Entry>
+
+                        </StackLayout>
+
+                        <StackLayout Style="{StaticResource FormStack}"
+                                     Spacing="0">
+                            <Label Text="Password"
+                                   Style="{StaticResource FormTitle}"></Label>
+                            <Entry  Text="{Binding User.password}"
+                                    IsPassword="True"
+                                    Style="{StaticResource FormEditor}"></Entry>
+
+                        </StackLayout>
+                        <StackLayout Style="{StaticResource FormStack}"
+                                     Spacing="0">
+                            <Label Text="ABOUT ME"
+                                   Style="{StaticResource FormTitle}"></Label>
+                            <Entry  Text="{Binding User.about}"
+                                    ReturnType="Done" ReturnCommand="{Binding SaveCommand}"
+                                    Style="{StaticResource FormEditor}"></Entry>
+
+                        </StackLayout>
+                    </StackLayout>
+                </Grid>
+
+            </Grid>
+           
+
+
+        </ScrollView>
+
+    </ContentPage.Content>
+
+</ContentPage>

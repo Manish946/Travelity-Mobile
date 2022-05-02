@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Travelity.Views.ExplorePage"
+             xmlns:viewModels="clr-namespace:Travelity.ViewModel"
+             xmlns:controls="clr-namespace:Travelity.Control"
+             xmlns:CI="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit">
+    <ContentView.BindingContext>
+        <viewModels:MainViewModel></viewModels:MainViewModel>
+    </ContentView.BindingContext>
+    <Grid>
+        <ScrollView VerticalScrollBarVisibility="Never">
+            <controls:Background Padding="0">
+                <StackLayout Padding="20,30,20,20">
+                    <Grid RowDefinitions="55,180,Auto">                         
+                        <!--TOP INTRO AND IMAGE-->
+                        <Grid ColumnDefinitions="*,Auto"
+                              RowDefinitions="35"
+                              HorizontalOptions="Fill"
+                             
+                              Grid.Row="0">
+                            <StackLayout>                                
+                                <Image Source="Travelity_Background_Logo" HeightRequest="30"  HorizontalOptions="Start" Aspect="AspectFit"></Image>
+                                <Label Text="EXPLORE"
+                                       Style="{StaticResource PageSubHeader}"
+                                       FontAttributes="Bold"></Label>
+                            </StackLayout>
+
+                            <StackLayout Spacing="10"
+                                         Grid.Column="1"
+                                         Orientation="Horizontal">
+                                <ImageButton Source="icon_settings.png"
+                                             BackgroundColor="Transparent"
+                                             HeightRequest="25"
+                                             xct:TouchEffect.PressedScale="1.5"
+                                             WidthRequest="25">
+
+                                </ImageButton>
+                                <ImageButton Source="icon_notifications_outlined.png"
+                                             BackgroundColor="Transparent"
+                                             Clicked="Notification_Click"
+                                             HeightRequest="25"
+                                             xct:TouchEffect.PressedScale="1.5"
+                                             WidthRequest="25">
+
+                                </ImageButton>
+                                <ImageButton WidthRequest="35"
+                                             HeightRequest="35"
+                                             Aspect="AspectFill"
+                                             CornerRadius="30"
+                                             Padding="0"
+                                             xct:TouchEffect.PressedScale="1.05"
+                                             Clicked="ProfileButton_Click"
+                                            
+                                             Source="{Binding CurrentUser.profilePicture}">
+
+                                </ImageButton>
+                            </StackLayout>
+
+                        </Grid>
+
+                        <Grid Grid.Row="1">
+
+                            <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                                <StackLayout Orientation="Horizontal"
+                                             BindableLayout.ItemsSource="{Binding Posts}"
+                                             Spacing="20">
+                                    <BindableLayout.ItemTemplate>
+                                        <DataTemplate>
+                                            <Frame Padding="0"
+                                                   CornerRadius="8"
+                                                   WidthRequest="90"
+                                                   BorderColor="Transparent"
+                                                   HeightRequest="20"
+                                                   xct:TouchEffect.PressedScale="1.02"
+                                                   HasShadow="True"
+                                                   IsClippedToBounds="True">
+
+                                                <Image Source="{Binding Post.ImageUrl}"
+                                                       Aspect="AspectFill">
+
+                                                </Image>
+                                            </Frame>
+                                            
+                                        </DataTemplate>
+                                    </BindableLayout.ItemTemplate>
+                                </StackLayout>
+                            </ScrollView>
+                           
+                        </Grid>
+
+                        <Grid Grid.Row="2">
+                            <StackLayout BindableLayout.ItemsSource="{Binding  Posts}"
+                                         Spacing="20">
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate>
+                                        <controls:GradientFrame>
+                                            <Grid RowDefinitions="55,Auto,25,20,Auto,Auto,Auto">
+                                                <Grid Grid.Row="0"
+                                                      ColumnDefinitions="*,*,25">
+                                                    <Grid Grid.Column="0">
+                                                        <StackLayout Orientation="Horizontal">
+
+                                                            <CI:CircleImage HeightRequest="50"
+                                                                            WidthRequest="50"
+                                                                            Aspect="AspectFill"
+                                                                            VerticalOptions="Center"
+                                                                            xct:TouchEffect.PressedScale="1.08"
+                                                                            HorizontalOptions="Center"
+                                                                            Source="{Binding Post.User.Image}">
+                                                            </CI:CircleImage>
+
+
+                                                            <StackLayout VerticalOptions="Center">
+                                                                <Label Text="{Binding Post.User.Name}"
+                                                                       Style="{StaticResource  SectionSubHeader}"
+                                                                       TextColor="White"
+                                                                       VerticalOptions="Center"></Label>
+
+                                                                <Label Text="{Binding Post.TimeAgo}"
+                                                                       Style="{StaticResource SectionDetail}"></Label>
+                                                            </StackLayout>
+
+                                                        </StackLayout>
+
+                                                    </Grid>
+
+
+                                                    <Grid Grid.Column="2">
+                                                        <ImageButton Source="icon_more_vert_outlined"
+                                                                     xct:TouchEffect.PressedScale="1.5"
+                                                                     BackgroundColor="Transparent">
+
+                                                        </ImageButton>
+                                                    </Grid>
+                                                </Grid>
+                                                <Grid Grid.Row="1">
+                                                    <Frame Padding="0"
+                                                           CornerRadius="8"
+                                                           BorderColor="Transparent"
+                                                           HasShadow="False"
+                                                           IsClippedToBounds="True">
+
+                                                        <Image Source="{Binding Post.ImageUrl}"
+                                                               Aspect="AspectFill"
+                                                               >
+
+                                                        </Image>
+                                                    </Frame>
+                                                </Grid>
+
+                                                <Grid Grid.Row="2">
+                                                    <StackLayout Orientation="Horizontal"
+                                                                 Spacing="20">
+                                                        <ImageButton Source="icon_favorite_outlined.png"
+                                                                     Clicked="LikeButton_Click"
+                                                                     BackgroundColor="Transparent"
+                                                                     HeightRequest="25"
+                                                                     WidthRequest="25"
+                                                                     xct:TouchEffect.PressedScale="1.5"
+                                                                     VerticalOptions="Center">
+
+                                                        </ImageButton>
+
+                                                        <ImageButton Source="icon_comment_outlined.png"
+                                                                     BackgroundColor="Transparent"
+                                                                     HeightRequest="25"
+                                                                     xct:TouchEffect.PressedScale="1.5"
+                                                                     WidthRequest="25"
+                                                                     VerticalOptions="Center">
+
+                                                        </ImageButton>
+
+                                                        <ImageButton Source="icon_send_outlined.png"
+                                                                     BackgroundColor="Transparent"
+                                                                     HeightRequest="25"
+                                                                     xct:TouchEffect.PressedScale="1.5"
+                                                                     WidthRequest="25"
+                                                                     VerticalOptions="Center">
+
+                                                        </ImageButton>
+                                                    </StackLayout>
+
+                                                </Grid>
+
+
+                                                <Grid Grid.Row="3">
+                                                    <Label Text="{Binding Post.Likes , StringFormat='{0} Likes'}"
+                                                           VerticalOptions="Center"
+                                                           Style="{StaticResource SectionDetail}">
+
+                                                    </Label>
+                                                </Grid>
+                                                <Grid Grid.Row="4">
+
+                                                    <Label TextColor="White">
+                                                        <Label.Text>
+                                                            <MultiBinding StringFormat="{}{0} : {1}">
+                                                                <Binding Path="Post.User.Name"></Binding>
+                                                                <Binding Path="Post.Caption"></Binding>
+                                                            </MultiBinding>
+                                                        </Label.Text>
+                                                    </Label>
+                                                </Grid>
+                                                <Grid Grid.Row="5">
+                                                    <Label Text="{Binding Post.Comments, StringFormat='View all {0} comments'}" 
+                                                           xct:TouchEffect.PressedScale="1.05"></Label>
+                                                </Grid>
+
+                                                <Grid Grid.Row="6">
+                                                    <StackLayout Orientation="Horizontal"
+                                                                 Spacing="20"
+                                                                 BindingContext="{StaticResource MainBinding}"
+                                                                 >
+
+                                                        <ImageButton WidthRequest="35"
+                                                                     HeightRequest="35"                                                                     
+                                                                     Aspect="AspectFill"
+                                                                     CornerRadius="30"
+                                                                     Padding="0"
+                                                                     xct:TouchEffect.PressedScale="1.05"
+                                                                     Source="{Binding CurrentUser.profilePicture}">
+
+                                                        </ImageButton>
+                                                        
+                                                        <Entry VerticalOptions="Center"
+                                                               FontSize="14"
+                                                               HorizontalOptions="StartAndExpand"
+                                                               WidthRequest="220"
+                                                               ReturnType="Send"
+                                                               xct:VisualFeedbackEffect.FeedbackColor="Brown"
+                                                               Keyboard="Chat"
+                                                               ClearButtonVisibility="WhileEditing"
+                                                               Placeholder="Add a comment..."></Entry>
+                                                       
+                                                    </StackLayout>
+                                                </Grid>
+                                            </Grid>
+                                        </controls:GradientFrame>
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </StackLayout>
+
+                        </Grid>
+                    </Grid>
+
+                </StackLayout>
+
+
+            </controls:Background>
+
+        </ScrollView>
+    </Grid>
+
+
+</ContentView>

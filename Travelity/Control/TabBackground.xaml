@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Frame xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Travelity.Control.TabBackground">
+    <Frame.Background>
+        <LinearGradientBrush>
+            <GradientStop Color="#10152A"
+                          Offset="0.3"></GradientStop>
+            <GradientStop Color="#181B21"
+                          Offset="0.2"></GradientStop>
+            <GradientStop Color="#10152A"
+                          Offset="0.1"></GradientStop>
+            
+
+        </LinearGradientBrush>
+    </Frame.Background>
+
+</Frame>

@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:viewModels="clr-namespace:Travelity.ViewModel"
+             xmlns:views="clr-namespace:Travelity.Views"
+             xmlns:controls="clr-namespace:Travelity.Control"
+             xmlns:CI="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             x:Class="Travelity.MainPage"
+             BackgroundColor="{StaticResource TabBackground}"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.BindingContext>
+        <viewModels:MainViewModel></viewModels:MainViewModel>
+    </ContentPage.BindingContext>
+
+    <controls:TabBackground Padding="0">
+
+        <Grid >
+            <!--Grid Row 1-->
+            <!--Bottom Navigation AND Buttons-->
+            
+           
+            
+            
+            <xct:TabView TabStripHeight="70"
+                         TabStripPlacement="Bottom"
+                         HorizontalOptions="Fill"
+                         VerticalOptions="Fill"
+                         IsSwipeEnabled="False">
+                <xct:TabViewItem Text="Home"
+                                 Icon="icon_home_outlined.png"
+                                 IconSelected="icon_home.png"
+                                 ControlTemplate="{StaticResource TabItemTemplate}">
+                    <xct:LazyView x:TypeArguments="views:HomePage"
+                                 ></xct:LazyView>
+                </xct:TabViewItem>
+                <xct:TabViewItem Text="Explore"
+                                 Icon="icon_explore_outlined.png"
+                                 IconSelected="icon_explore.png"
+                                 ControlTemplate="{StaticResource TabItemTemplate}">
+                    <xct:LazyView x:TypeArguments="views:ExplorePage"></xct:LazyView>
+                </xct:TabViewItem>
+
+                <xct:TabViewItem Text="Add"
+                                 Icon="icon_add.png"
+                                 ControlTemplate="{StaticResource FabTabItemTemplate}"
+                                 TabTapped="OnFabTabTapped">
+                </xct:TabViewItem>
+
+
+                <xct:TabViewItem Text="Group"
+                                 Icon="icon_group_outlined.png"
+                                 IconSelected="icon_group.png"
+                                 ControlTemplate="{StaticResource TabItemTemplate}">
+                    <xct:LazyView x:TypeArguments="views:GroupPage"></xct:LazyView>
+                </xct:TabViewItem>
+                <xct:TabViewItem Text="Chat"
+                                 Icon="icon_inbox_outlined.png"
+                                 IconSelected="icon_inbox.png"
+                                 ControlTemplate="{StaticResource TabItemTemplate}">
+                    <views:ChatRoomPage></views:ChatRoomPage>
+                </xct:TabViewItem>
+            </xct:TabView>
+
+
+        </Grid>
+    </controls:TabBackground>
+
+</ContentPage>

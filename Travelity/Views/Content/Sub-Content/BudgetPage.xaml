@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Travelity.Views.Content.Sub_Content.BudgetPage"
+             xmlns:viewmodels="clr-namespace:Travelity.ViewModel"
+             xmlns:models="clr-namespace:Travelity.Abstractions.Models;assembly=Travelity.Abstractions"
+             xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms">
+
+
+    <ContentView.Content>
+
+
+        <StackLayout>
+            <Label Text="animation"></Label>
+            <lottie:AnimationView x:Name="TravelityLoading"
+                                  AnimationSource="Url"
+                                  Animation="https://assets1.lottiefiles.com/packages/lf20_af77tbqx.json"
+                                  AutoPlay="True"
+                                  HorizontalOptions="CenterAndExpand"
+                                  VerticalOptions="CenterAndExpand"
+                                  RepeatMode="Infinite"
+                                  WidthRequest="160"
+                                  HeightRequest="160"></lottie:AnimationView>
+        </StackLayout>
+
+    </ContentView.Content>
+
+
+</ContentView>

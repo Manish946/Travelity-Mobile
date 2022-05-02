@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:templates="clr-namespace:Travelity.Templates"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:viewModels="clr-namespace:Travelity.ViewModel"
+             x:Class="Travelity.App">
+    <Application.Resources>
+
+        <Color x:Key="Background">#10152A</Color>
+        <Color x:Key="TabBackground">#10152A</Color>
+        <Color x:Key="Primary">#88a7ff</Color>
+        
+        
+        <viewModels:MainViewModel x:Key="MainBinding">
+
+        </viewModels:MainViewModel>
+
+        <viewModels:GoogleUserViewModel x:Key="GoogleUserViewModel_Binding">
+
+        </viewModels:GoogleUserViewModel>
+
+        <viewModels:BaseTravelityViewModel x:Key="BaseViewModelBinding">
+
+        </viewModels:BaseTravelityViewModel>
+        <ResourceDictionary>
+
+
+
+
+            <Style TargetType="Label">
+                <Setter Property="FontFamily"
+                        Value="AharoniFont.tff#Aharoni"></Setter>
+            </Style>
+
+            <DataTemplate x:Key="personTemplate">
+                <Image Source="{Binding Image}"
+                       HeightRequest="30"
+                       WidthRequest="30"
+                       VerticalOptions="Start"
+                       Margin="-13,0,0,0">
+                    <Image.Clip>
+                        <RoundRectangleGeometry  Rect="0,0,30,30"
+                                                 CornerRadius="15">
+
+                        </RoundRectangleGeometry>
+                    </Image.Clip>
+                </Image>
+            </DataTemplate>
+            <DataTemplate x:Key="counterTemplate">
+                <Frame Padding="0"
+                       BackgroundColor="{StaticResource Primary}"
+                       WidthRequest="30"
+                       HeightRequest="30"
+                       VerticalOptions="Start"
+                       CornerRadius="15"
+                       Margin="-13,0,0,0">
+                    <Label VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           Text="{Binding ., StringFormat='{0}+'}"></Label>
+
+                </Frame>
+            </DataTemplate>
+
+            <templates:PersonCollectionDataTemplatteSelector x:Key="PersonDataTemplateSelector"
+                                                             CounterTemplate="{StaticResource counterTemplate}"
+                                                             PersonTemplate="{StaticResource personTemplate}">
+
+            </templates:PersonCollectionDataTemplatteSelector>
+
+
+
+            <ControlTemplate x:Key="TabItemTemplate">
+                <Grid RowSpacing="0">
+
+                    <Image VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           WidthRequest="30"
+                           HeightRequest="30"
+                           xct:IconTintColorEffect.TintColor="White"
+                           IsAnimationPlaying="True"
+                           Margin="6"
+                           Source="{TemplateBinding CurrentIcon}" />
+
+                </Grid>
+            </ControlTemplate>
+
+            <ControlTemplate x:Key="TabItemTemplateContent">
+                <Grid RowSpacing="0">
+                    <Label HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           Text="{TemplateBinding Text}"
+                           TextColor="{TemplateBinding CurrentTextColor}" />
+                </Grid>
+            </ControlTemplate>
+
+            <ControlTemplate x:Key="FabTabItemTemplate">
+                <Grid>
+                    <ImageButton InputTransparent="True"
+                                 Source="{TemplateBinding CurrentIcon}"
+                                 Padding="10"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="Center"
+                                 HeightRequest="60"
+                                 WidthRequest="60"
+                                 Margin="6"
+                                 CornerRadius="16"
+                                 BackgroundColor="{StaticResource Primary}">
+
+                    </ImageButton>
+
+                </Grid>
+            </ControlTemplate>
+
+
+
+            <Style x:Key="TabItemStyle"
+                   TargetType="xct:TabViewItem">
+                <Setter Property="FontSize"
+                        Value="12" />
+                <Setter Property="TextColor"
+                        Value="DarkGray" />
+
+                <Setter Property="TextColorSelected"
+                        Value="#88a7ff" />
+
+            </Style>
+
+            <Style x:Key="CustomTabStyle"
+                   TargetType="xct:TabView">
+                <Setter Property="IsTabTransitionEnabled"
+                        Value="True" />
+                <Setter Property="TabStripHeight"
+                        Value="48" />
+                <Setter Property="TabContentBackgroundColor"
+                        Value="#484848" />
+                <Setter Property="TabStripPlacement"
+                        Value="Top" />
+            </Style>
+
+            <Style x:Key="PageHeader"
+                   TargetType="Label">
+                <Setter Property="TextColor"
+                        Value="White"></Setter>
+                <Setter Property="FontFamily"
+                        Value="SemiBoldFont"></Setter>
+                <Setter Property="FontSize"
+                        Value="24"></Setter>
+            </Style>
+
+            <Style x:Key="PageSubHeader"
+                   TargetType="Label">
+                <Setter Property="TextColor"
+                        Value="DarkGray"></Setter>
+                <Setter Property="FontFamily"
+                        Value="SemiBoldFont"></Setter>
+                <Setter Property="FontSize"
+                        Value="13"></Setter>
+            </Style>
+
+            <Style x:Key="SectionHeader"
+                   TargetType="Label">
+                <Setter Property="TextColor"
+                        Value="White"></Setter>
+                <Setter Property="FontFamily"
+                        Value="SemiBoldFont"></Setter>
+                <Setter Property="FontSize"
+                        Value="20"></Setter>
+            </Style>
+
+            <Style x:Key="SectionSubHeader"
+                   TargetType="Label">
+                <Setter Property="TextColor"
+                        Value="DarkGray"></Setter>
+                <Setter Property="FontFamily"
+                        Value="SemiBoldFont"></Setter>
+                <Setter Property="FontSize"
+                        Value="13"></Setter>
+            </Style>
+
+            <Style x:Key="SectionDetail"
+                   TargetType="Label">
+                <Setter Property="TextColor"
+                        Value="#88a7ff"></Setter>
+                <Setter Property="FontFamily"
+                        Value="SemiBoldFont"></Setter>
+                <Setter Property="FontSize"
+                        Value="14"></Setter>
+            </Style>
+
+            <!--Stack Image Style-->
+            <Style x:Key="StackFrame"
+                   TargetType="Frame">
+                <Setter Property="CornerRadius"
+                        Value="10"></Setter>
+                <Setter Property="Padding"
+                        Value="0"></Setter>
+
+                <Setter Property="HasShadow"
+                        Value="False" />
+                <Setter Property="BorderColor"
+                        Value="Transparent" />
+                <Setter Property="xct:TouchEffect.NormalBackgroundColor"
+                        Value="Black"></Setter>
+
+            </Style>
+
+            <Style x:Key="StackImage"
+                   TargetType="Image">
+                <Setter Property="HeightRequest"
+                        Value="30"></Setter>
+                <Setter Property="WidthRequest"
+                        Value="40"></Setter>
+
+
+            </Style>
+
+            <Style x:Key="StackButton"
+                   TargetType="StackLayout">
+                <Setter Property="Background"
+                        Value="#292c34">
+                </Setter>
+                <Setter Property="Spacing"
+                        Value="20"></Setter>
+                <Setter Property="Padding"
+                        Value="10"></Setter>
+                <Setter Property="HeightRequest"
+                        Value="35"></Setter>
+                <Setter Property="xct:TouchEffect.PressedScale"
+                        Value="1.03"></Setter>
+            </Style>
+
+            <Style x:Key="StackText"
+                   TargetType="Label">
+                <Setter Property="FontFamily"
+                        Value="AharoniFont.tff"></Setter>
+                <Setter Property="FontAttributes"
+                        Value="Bold"></Setter>
+                <Setter Property="HorizontalOptions"
+                        Value="Center"></Setter>
+                <Setter Property="VerticalOptions"
+                        Value="Center"></Setter>
+                <Setter Property="FontSize"
+                        Value="17"></Setter>
+                <Setter Property="TextColor"
+                        Value="White"></Setter>
+
+            </Style>
+
+
+
+            <!-- EDIT PROFILE FORM STYLING  -->
+            <Style x:Key="FormStack"
+                   TargetType="StackLayout">
+                <Setter Property="Spacing"
+                        Value="10"></Setter>
+            </Style>
+
+            <Style x:Key="FormTitle"
+                   TargetType="Label">
+                <Setter Property="TextColor"
+                        Value="#3c3e4a"></Setter>
+                <Setter Property="FontAttributes"
+                        Value="Bold"></Setter>
+            </Style>
+
+            <Style x:Key="FormEditor"
+                   TargetType="Entry">
+                <Setter Property="FontAttributes"
+                        Value="Bold"></Setter>
+                <Setter Property="FontSize"
+                        Value="20"></Setter>
+                <Setter Property="HeightRequest"
+                        Value="55"></Setter>
+                <Setter Property="TextColor"
+                        Value="Gray"></Setter>
+                <Setter Property="ReturnType"
+                        Value="Next"></Setter>
+
+            </Style>
+
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
