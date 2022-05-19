@@ -20,10 +20,10 @@ using Xamarin.CommunityToolkit.UI.Views;
 namespace Travelity.ViewModel.UserViewModels
 {
     [AddINotifyPropertyChangedInterface]
-
+   
     public class UserViewModel : BaseUserViewModel
     {
-        static readonly string BaseAddress = DeviceInfo.Platform == DevicePlatform.Android ? "http://164.68.120.109:8010/api" : "http://164.68.120.109:8010/api";
+        static readonly string BaseAddress = DeviceInfo.Platform == DevicePlatform.Android ? "https://travelitywebapi.azurewebsites.net/api" : "https://travelitywebapi.azurewebsites.net/api";
         private bool isBusy;
 
         public Xamarin.Forms.INavigation Navigation { get; set; }
