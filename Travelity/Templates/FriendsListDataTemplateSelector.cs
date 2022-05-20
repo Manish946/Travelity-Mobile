@@ -78,7 +78,7 @@ namespace Travelity.Templates
                         {
                             var ReceiveRequest = userViewModel.UserFriendRequests.Where(friend => friend.username == user.username);
 
-                            if (ReceiveRequest != null)
+                            if (ReceiveRequest.Count() != 0)
                             {
                                 return Response_FriendDataTemplate;
                             }
