@@ -1,5 +1,6 @@
 ﻿using MvvmHelpers;
 using MvvmHelpers.Commands;
+using Newtonsoft.Json;
 using PropertyChanged;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Travelity.Abstractions.Models;
 using Travelity.Models;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -15,88 +17,117 @@ namespace Travelity.ViewModel.GroupViewModels
 {
     [AddINotifyPropertyChangedInterface]
 
-    public class GroupViewModel
+    public class GroupViewModel : BaseTravelityViewModel
     {
-        readonly int peopleToShow = 3;
-        private GroupModel group;
-        public ObservableCollection<GroupViewModel> Groups { get; set; }
+        public ObservableRangeCollection<Group> Groups { get; set; }
+        public ObservableRangeCollection<User> GroupUsers { get; set; }
 
-        public GroupModel Group
-        {
-            get => group;
-            set => group = value;
-        }
+
+        //private GroupModel group;
+
+        //public GroupViewModel(GroupModel group)
+        //{
+        //    Group = group;
+        //    Groups = new ObservableRangeCollection<Group>();
+        //    GetGroups();
+        //}
 
         public GroupViewModel()
         {
-           Groups = new ObservableCollection<GroupViewModel>();
-           LoadUserGroups();
+            CurrentUsername = Preferences.Get("CurrentUsername", "");
+            Groups = new ObservableRangeCollection<Group>();
+            LoadGroups();
+            GetGroupUsers(1);
         }
 
+        //public GroupModel Group
+        //{
+        //    get => group;
+        //    set => group = value;
+        //}
 
-        private async void LoadUserGroups()
+        private async void LoadGroups()
         {
-
+            Groups = await Client.GetGroups();
+            
         }
 
-        public string PeopleAtGroup
+        public async void GetGroupUsers(int GroupId)
         {
-            get
+            try
             {
-                var firstPerson = group.People.FirstOrDefault();
-                var peopleCount = group.People.Count;
+                GroupUsers = await Client.GetGroupUsers(GroupId);
+            }
+            catch (Exception ex)
+            {
 
-                if (firstPerson == null)
-                {
-                    return "It's just you";
-
-                }
-
-                var names = group.People.Select(x => x.Name).OrderBy(o => o).Take(3).ToList();
-                string nameList = string.Join(", ", names);
-
-                if (peopleCount > peopleToShow)
-                {
-                    return $"{nameList} and {peopleCount - peopleToShow} others";
-                }
-                else
-                {
-                    return nameList;
-                }
+                await App.Current.MainPage.DisplayAlert("Error", ex.Message, "OK");
 
             }
         }
 
 
-        public List<object> PeopleImages
-        {
-            get
-            {
-                var peopleCount = group.People.Count;
 
-                List<object> returnList = new List<object>();
-                returnList.AddRange(group.People.Take(peopleToShow));
-                if (peopleCount > peopleToShow)
-                {
-                    returnList.Add(peopleCount - peopleToShow);
 
-                }
-                return returnList;
-            }
-        }
+        //readonly int peopleToShow = 3;
 
-        public List<object> TotalPeopleImages
-        {
-            get
-            {
-                var peopleCount = group.People.Count;
+        //public string PeopleAtGroup
+        //{
+        //    get
+        //    {
+        //        var firstPerson = group.People.FirstOrDefault();
+        //        var peopleCount = group.People.Count;
 
-                List<object> returnList = new List<object>();
-                returnList.AddRange(group.People);
-                returnList.Add(peopleCount);
-                return returnList;
-            }
-        }
+        //        if (firstPerson == null)
+        //        {
+        //            return "It's just you";
 
+        //        }
+
+        //        var names = group.People.Select(x => x.Name).OrderBy(o => o).Take(3).ToList();
+        //        string nameList = string.Join(", ", names);
+
+        //        if (peopleCount > peopleToShow)
+        //        {
+        //            return $"{nameList} and {peopleCount - peopleToShow} others";
+        //        }
+        //        else
+        //        {
+        //            return nameList;
+        //        }
+
+        //    }
+        //}
+
+
+        //public List<object> PeopleImages
+        //{
+        //    get
+        //    {
+        //        var peopleCount = group.People.Count;
+
+        //        List<object> returnList = new List<object>();
+        //        returnList.AddRange(group.People.Take(peopleToShow));
+        //        if (peopleCount > peopleToShow)
+        //        {
+        //            returnList.Add(peopleCount - peopleToShow);
+
+        //        }
+        //        return returnList;
+        //    }
+        //}
+
+        //public List<object> TotalPeopleImages
+        //{
+        //    get
+        //    {
+        //        var peopleCount = group.People.Count;
+
+        //        List<object> returnList = new List<object>();
+        //        returnList.AddRange(group.People);
+        //        returnList.Add(peopleCount);
+        //        return returnList;
+        //    }
+        //}
     }
 }

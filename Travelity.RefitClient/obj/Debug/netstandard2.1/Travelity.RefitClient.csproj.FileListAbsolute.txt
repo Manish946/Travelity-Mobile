@@ -13,3 +13,18 @@ C:\Travelity Cloud\Travelity\Travelity.RefitClient\obj\Debug\netstandard2.1\Trav
 C:\Travelity Cloud\Travelity\Travelity.RefitClient\obj\Debug\netstandard2.1\Travelity.RefitClient.csproj.CopyComplete
 C:\Travelity Cloud\Travelity\Travelity.RefitClient\obj\Debug\netstandard2.1\Travelity.RefitClient.dll
 C:\Travelity Cloud\Travelity\Travelity.RefitClient\obj\Debug\netstandard2.1\Travelity.RefitClient.pdb
+C:\Users\msh\Downloads\Github\Travelity-Mobile\Travelity.RefitClient\bin\Debug\netstandard2.1\Travelity.RefitClient.deps.json
+C:\Users\msh\Downloads\Github\Travelity-Mobile\Travelity.RefitClient\bin\Debug\netstandard2.1\Travelity.RefitClient.dll
+C:\Users\msh\Downloads\Github\Travelity-Mobile\Travelity.RefitClient\bin\Debug\netstandard2.1\Travelity.RefitClient.pdb
+C:\Users\msh\Downloads\Github\Travelity-Mobile\Travelity.RefitClient\bin\Debug\netstandard2.1\Travelity.Abstractions.dll
+C:\Users\msh\Downloads\Github\Travelity-Mobile\Travelity.RefitClient\bin\Debug\netstandard2.1\Travelity.RefitAbstractions.dll
+C:\Users\msh\Downloads\Github\Travelity-Mobile\Travelity.RefitClient\bin\Debug\netstandard2.1\Travelity.RefitAbstractions.pdb
+C:\Users\msh\Downloads\Github\Travelity-Mobile\Travelity.RefitClient\bin\Debug\netstandard2.1\Travelity.Abstractions.pdb
+C:\Users\msh\Downloads\Github\Travelity-Mobile\Travelity.RefitClient\obj\Debug\netstandard2.1\Travelity.RefitClient.csproj.AssemblyReference.cache
+C:\Users\msh\Downloads\Github\Travelity-Mobile\Travelity.RefitClient\obj\Debug\netstandard2.1\Travelity.RefitClient.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\msh\Downloads\Github\Travelity-Mobile\Travelity.RefitClient\obj\Debug\netstandard2.1\Travelity.RefitClient.AssemblyInfoInputs.cache
+C:\Users\msh\Downloads\Github\Travelity-Mobile\Travelity.RefitClient\obj\Debug\netstandard2.1\Travelity.RefitClient.AssemblyInfo.cs
+C:\Users\msh\Downloads\Github\Travelity-Mobile\Travelity.RefitClient\obj\Debug\netstandard2.1\Travelity.RefitClient.csproj.CoreCompileInputs.cache
+C:\Users\msh\Downloads\Github\Travelity-Mobile\Travelity.RefitClient\obj\Debug\netstandard2.1\Travelity.RefitClient.csproj.CopyComplete
+C:\Users\msh\Downloads\Github\Travelity-Mobile\Travelity.RefitClient\obj\Debug\netstandard2.1\Travelity.RefitClient.dll
+C:\Users\msh\Downloads\Github\Travelity-Mobile\Travelity.RefitClient\obj\Debug\netstandard2.1\Travelity.RefitClient.pdb

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Travelity.Models;
 using Travelity.ViewModel;
+using Travelity.ViewModel.GroupViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

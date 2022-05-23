@@ -59,16 +59,22 @@ namespace Travelity.RefitAbstractions
 
         [Get("/Group")]
         Task<ObservableRangeCollection<Group>> GetGroups();
+
         [Get("/Group/Users/{GroupId}")]
         Task<ObservableRangeCollection<User>> GetGroupUsers(int GroupId);
+
         [Get("/Group/Id/{GroupId}")]
-        Task<ObservableRangeCollection<User>> GetGroupById(int GroupId);
+        Task<Group> GetGroupById(int GroupId);
+
         [Post("/Group")]
         Task CreateGroup([Body] Group group);
+
         [Post("/Group/User")]
         Task AddUserToGroup([Body] GroupUser groupUser);
+
         [Put("/Group/Update/{GroupId}")]
         Task UpdateGroup(int GroupId, [Body] Group group);
+
         [Delete("/Group/Delete/{GroupId}")]
         Task DeleteGroup(int GroupId);
     }

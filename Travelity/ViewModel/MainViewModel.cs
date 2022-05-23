@@ -27,8 +27,6 @@ namespace Travelity.ViewModel
         public string FullName { get; set; }
         public string Email { get; set; }
         public string Aboutme { get; set; }
-        private GroupViewModel GroupViewModel { get; set; }
-        public ObservableRangeCollection<Group> Groups { get; set; }
         public ObservableRangeCollection<PostViewModel> Posts { get; set; }
         public LayoutState MainState { get; set; }
 
@@ -88,8 +86,7 @@ namespace Travelity.ViewModel
             FriendImage = "https://randomuser.me/api/portraits/women/66.jpg";
             FriendImage2 = "https://randomuser.me/api/portraits/men/36.jpg";
             GroupCover = "https://i.pinimg.com/originals/68/77/f5/6877f510369f3e4b6a548d69ff307652.png";
-            GroupViewModel = new GroupViewModel();
-            Groups = GroupViewModel.Groups;
+            
 
             var post1 = new PostViewModel(
                 new PostModel()
