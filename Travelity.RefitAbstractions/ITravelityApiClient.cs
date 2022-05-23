@@ -47,14 +47,29 @@ namespace Travelity.RefitAbstractions
         [Get("/FriendRequest/Receiver/{UserName}")]
         Task<ObservableRangeCollection<FriendRequest>> GetUserReceiveRequests(string UserName);
 
-        [Put("/FriendRequest/Update/{Id}")]
-        Task UpdateFriendRequest(int Id, [Body] FriendRequest friendRequest);
+        [Put("/FriendRequest/Update/{FriendRequestId}")]
+        Task UpdateFriendRequest(int FriendRequestId, [Body] FriendRequest friendRequest);
 
 
-        [Delete("/FriendRequest/Delete/{Id}")]
-        Task DeleteFriendRequest(int Id);
+        [Delete("/FriendRequest/Delete/{FriendRequestId}")]
+        Task DeleteFriendRequest(int FriendRequestId);
 
 
+        // Group API EndPoints
 
+        [Get("/Group")]
+        Task<ObservableRangeCollection<Group>> GetGroups();
+        [Get("/Group/Users/{GroupId}")]
+        Task<ObservableRangeCollection<User>> GetGroupUsers(int GroupId);
+        [Get("/Group/Id/{GroupId}")]
+        Task<ObservableRangeCollection<User>> GetGroupById(int GroupId);
+        [Post("/Group")]
+        Task CreateGroup([Body] Group group);
+        [Post("/Group/User")]
+        Task AddUserToGroup([Body] GroupUser groupUser);
+        [Put("/Group/Update/{GroupId}")]
+        Task UpdateGroup(int GroupId, [Body] Group group);
+        [Delete("/Group/Delete/{GroupId}")]
+        Task DeleteGroup(int GroupId);
     }
 }

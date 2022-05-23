@@ -27,7 +27,8 @@ namespace Travelity.ViewModel
         public string FullName { get; set; }
         public string Email { get; set; }
         public string Aboutme { get; set; }
-        public ObservableRangeCollection<GroupViewModel> Groups { get; set; }
+        private GroupViewModel GroupViewModel { get; set; }
+        public ObservableRangeCollection<Group> Groups { get; set; }
         public ObservableRangeCollection<PostViewModel> Posts { get; set; }
         public LayoutState MainState { get; set; }
 
@@ -87,6 +88,8 @@ namespace Travelity.ViewModel
             FriendImage = "https://randomuser.me/api/portraits/women/66.jpg";
             FriendImage2 = "https://randomuser.me/api/portraits/men/36.jpg";
             GroupCover = "https://i.pinimg.com/originals/68/77/f5/6877f510369f3e4b6a548d69ff307652.png";
+            GroupViewModel = new GroupViewModel();
+            Groups = GroupViewModel.Groups;
 
             var post1 = new PostViewModel(
                 new PostModel()
@@ -191,134 +194,6 @@ namespace Travelity.ViewModel
 
                 }
                 );
-            var FirstGroup = new GroupViewModel(
-                new GroupModel()
-                {
-                    Name = "England Travel Group",
-                    Destination = "London, England",
-                    LocationThumbnail = "https://www.wendyperrin.com/wp-content/uploads/2014/09/evening-view-of-london-england-cr-visit-britain.jpg",
-                    MapThumbnail = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Greater_London_administrative_area_in_England.svg/1200px-Greater_London_administrative_area_in_England.svg.png",
-                    People = new List<PeopleModel> {
-
-                        new PeopleModel()
-                    {
-                        Name = "Manish",
-                        Image = "https://randomuser.me/api/portraits/men/9.jpg"
-
-                    },
-                          new PeopleModel()
-                    {
-                        Name = "James",
-                        Image = "https://randomuser.me/api/portraits/men/11.jpg"
-
-                    },
-                            new PeopleModel()
-                    {
-                        Name = "Adwin",
-                        Image = "https://randomuser.me/api/portraits/men/85.jpg"
-
-                    },
-                            new PeopleModel()
-                    {
-                        Name = "Arina",
-                        Image = "https://randomuser.me/api/portraits/women/79.jpg"
-
-                    },
-
-                            new PeopleModel()
-                    {
-                        Name = "Arina",
-                        Image = "https://randomuser.me/api/portraits/women/79.jpg"
-
-                    },
-
-
-                            new PeopleModel()
-                    {
-                        Name = "Arina",
-                        Image = "https://randomuser.me/api/portraits/women/79.jpg"
-
-                    },
-
-                            new PeopleModel()
-                    {
-                        Name = "Arina",
-                        Image = "https://randomuser.me/api/portraits/women/79.jpg"
-
-                    },
-                    },
-                    Albums = new List<AlbumModel>
-                    {
-                        new AlbumModel()
-                        {
-                            Name ="Castle",
-                            Image = "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimagesvc.meredithcorp.io%2Fv3%2Fmm%2Fimage%3Furl%3Dhttps%253A%252F%252Fstatic.onecms.io%252Fwp-content%252Fuploads%252Fsites%252F28%252F2020%252F01%252Fblenheim-palace-oxfordshire-UKCASTLE1219.jpg&q=85"
-
-                        },
-                         new AlbumModel()
-                        {
-                            Name ="lake",
-                            Image = "https://offloadmedia.feverup.com/secretldn.com/wp-content/uploads/2016/08/18141306/walthamstow-wetlands-lakes-london.jpg"
-
-                        }
-                    }
-                }
-                )
-
-            { };
-            var SecondGroup = new GroupViewModel(
-                new GroupModel()
-                {
-                    Name = "Tokyo Travel Group",
-                    Destination = "Tokyo, Japan",
-                    LocationThumbnail = "https://i.pinimg.com/originals/68/77/f5/6877f510369f3e4b6a548d69ff307652.png",
-                    MapThumbnail = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Greater_London_administrative_area_in_England.svg/1200px-Greater_London_administrative_area_in_England.svg.png",
-                    People = new List<PeopleModel> {
-
-
-                          new PeopleModel()
-                    {
-                        Name = "James",
-                        Image = "https://randomuser.me/api/portraits/men/11.jpg"
-
-                    },
-                            new PeopleModel()
-                    {
-                        Name = "Adwin",
-                        Image = "https://randomuser.me/api/portraits/men/85.jpg"
-
-                    },
-                            new PeopleModel()
-                    {
-                        Name = "Arina",
-                        Image = "https://randomuser.me/api/portraits/women/79.jpg"
-
-                    }
-                    },
-                    Albums = new List<AlbumModel>
-                    {
-                        new AlbumModel()
-                        {
-                            Name ="Castle",
-                            Image = "https://res.cloudinary.com/enchanting/q_70,f_auto,c_fill,w_1600,h_650,g_face/mp-web/2021/06/Website-topbanner-classic-japan.png"
-
-                        },
-                         new AlbumModel()
-                        {
-                            Name ="lake",
-                            Image = "https://ichef.bbci.co.uk/news/976/cpsprodpb/95EA/production/_118387383_35bb9b2c-a805-4fbf-a770-f4ed4f73da94.jpg"
-
-                        }
-                    }
-                }
-                )
-
-            { };
-            Groups = new ObservableRangeCollection<GroupViewModel>
-            {
-                FirstGroup,
-                SecondGroup
-            };
 
             Posts = new ObservableRangeCollection<PostViewModel>
             {

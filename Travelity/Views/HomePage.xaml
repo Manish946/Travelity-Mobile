@@ -165,7 +165,7 @@
                                             </Grid.GestureRecognizers>
                                             <Grid ColumnDefinitions="*,Auto">
                                                 <StackLayout>
-                                                    <Label Text="{Binding Group.Name}"
+                                                    <Label Text="{Binding Group.GroupName}"
                                                            Style="{StaticResource SectionHeader}"></Label>
                                                     <Label Text="{Binding Group.Destination}"
                                                            Style="{StaticResource SectionDetail}"></Label>
@@ -218,7 +218,7 @@
                                                        HasShadow="True"
                                                        IsClippedToBounds="True">
 
-                                                    <Image Source="{Binding Group.LocationThumbnail}"
+                                                    <Image Source="{Binding Group.GroupThumbnail}"
                                                            Aspect="AspectFill">
 
                                                     </Image>
@@ -231,7 +231,7 @@
                                                        IsClippedToBounds="True">
 
                                                     <Image Aspect="AspectFill"
-                                                           Source="{Binding Group.MapThumbnail}"></Image>
+                                                           Source="{Binding Group.GroupThumbnail}"></Image>
                                                 </Frame>
                                             </Grid>
 
