@@ -104,9 +104,9 @@
                                                 
                                             <Grid ColumnDefinitions="*,Auto">
                                                     <StackLayout>
-                                                        <Label Text="{Binding Group.groupName}"
+                                                        <Label Text="{Binding groupName}"
                                                                Style="{StaticResource SectionHeader}"></Label>
-                                                        <Label Text="{Binding Group.destination}"
+                                                        <Label Text="{Binding destination}"
                                                                Style="{StaticResource SectionDetail}"></Label>
                                                     </StackLayout>
                                                     <ImageButton Grid.Column="1"
@@ -120,7 +120,7 @@
                                                     </ImageButton>
                                                 </Grid>
                                                 <!-- Second Section-->
-                                                <!--<Grid Grid.Row="1"
+                                                <Grid Grid.Row="1"
                                                       ColumnDefinitions="*,*">
                                                     <StackLayout BindableLayout.ItemsSource="{Binding PeopleImages}"
                                                                  Orientation="Horizontal"
@@ -146,7 +146,7 @@
 
 
 
-                                                --><!-- Third Section--><!--
+                                                <!-- Third Section-->
                                                 <Grid Grid.Row="2"
                                                       ColumnDefinitions="2*,*"
                                                       ColumnSpacing="20"
@@ -157,7 +157,7 @@
                                                            HasShadow="True"
                                                            IsClippedToBounds="True">
 
-                                                        <Image Source="{Binding Group.groupThumbnail}"
+                                                        <Image Source="{Binding groupThumbnail}"
                                                                Aspect="AspectFill">
 
                                                         </Image>
@@ -170,16 +170,16 @@
                                                            IsClippedToBounds="True">
 
                                                         <Image Aspect="AspectFill"
-                                                               Source="{Binding Group.groupThumbnail}"></Image>
+                                                               Source="{Binding groupThumbnail}"></Image>
                                                     </Frame>
                                                 </Grid>
 
-                                                --><!-- Group Albums --><!--
+                                                <!-- Group Albums -->
                                                 <StackLayout Grid.Row="3">
                                                     <Label Style="{StaticResource SectionHeader}"
                                                            Text="Group Albums"
                                                            TextColor="DarkGray"></Label>
-                                                    <StackLayout BindableLayout.ItemsSource="{Binding Group.Albums}"
+                                                    <StackLayout BindableLayout.ItemsSource="{Binding Albums}"
                                                                  Orientation="Horizontal">
 
                                                         <BindableLayout.ItemTemplate>
@@ -199,7 +199,7 @@
                                                         </BindableLayout.ItemTemplate>
                                                     </StackLayout>
 
-                                                </StackLayout>-->
+                                                </StackLayout>
 
 
 

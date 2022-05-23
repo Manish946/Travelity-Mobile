@@ -54,7 +54,8 @@
                                  Icon="icon_group_outlined.png"
                                  IconSelected="icon_group.png"
                                  ControlTemplate="{StaticResource TabItemTemplate}">
-                    <xct:LazyView x:TypeArguments="views:GroupPage"></xct:LazyView>
+                    <views:GroupPage></views:GroupPage>
+
                 </xct:TabViewItem>
                 <xct:TabViewItem Text="Chat"
                                  Icon="icon_inbox_outlined.png"

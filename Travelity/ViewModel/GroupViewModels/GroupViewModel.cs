@@ -23,14 +23,13 @@ namespace Travelity.ViewModel.GroupViewModels
         public ObservableRangeCollection<User> GroupUsers { get; set; }
 
 
-        //private GroupModel group;
+        private Group group;
 
-        //public GroupViewModel(GroupModel group)
-        //{
-        //    Group = group;
-        //    Groups = new ObservableRangeCollection<Group>();
-        //    GetGroups();
-        //}
+        public GroupViewModel(Group group)
+        {
+            Group = group;
+
+        }
 
         public GroupViewModel()
         {
@@ -40,11 +39,11 @@ namespace Travelity.ViewModel.GroupViewModels
             GetGroupUsers(1);
         }
 
-        //public GroupModel Group
-        //{
-        //    get => group;
-        //    set => group = value;
-        //}
+        public Group Group
+        {
+            get => group;
+            set => group = value;
+        }
 
         private async void LoadGroups()
         {
@@ -69,7 +68,7 @@ namespace Travelity.ViewModel.GroupViewModels
 
 
 
-        //readonly int peopleToShow = 3;
+        readonly int peopleToShow = 3;
 
         //public string PeopleAtGroup
         //{
