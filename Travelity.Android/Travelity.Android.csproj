@@ -39,7 +39,7 @@
     <BundleAssemblies>false</BundleAssemblies>
     <AndroidSupportedAbis />
     <AndroidKeyStore>true</AndroidKeyStore>
-    <AndroidSigningKeyStore>C:\Travelity Cloud\Travelity\Travelity.Android\TravelityKeystore.jks</AndroidSigningKeyStore>
+    <AndroidSigningKeyStore>C:\Users\Manish\Documents\GitHub\Travelity-Mobile\Travelity.Android\TravelityKeystore.jks</AndroidSigningKeyStore>
     <AndroidSigningStorePass>Travelity@.</AndroidSigningStorePass>
     <AndroidSigningKeyAlias>Travelity</AndroidSigningKeyAlias>
     <AndroidSigningKeyPass>Travelity@.</AndroidSigningKeyPass>

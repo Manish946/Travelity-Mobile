@@ -12,5 +12,6 @@ namespace Travelity.Abstractions.Models
         public string groupAdmin { get; set; }
         public string groupThumbnail { get; set; }
         public DateTime createdTimeStamp { get; set; }
+        public ICollection<User> Users { get; set; }
     }
 }

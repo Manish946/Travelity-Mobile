@@ -1,5 +1,4 @@
 ﻿using MvvmHelpers;
-using MvvmHelpers.Commands;
 using Newtonsoft.Json;
 using PropertyChanged;
 using System;
@@ -8,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Travelity.Abstractions.Models;
 using Travelity.Models;
 using Xamarin.Essentials;
@@ -21,10 +21,15 @@ namespace Travelity.ViewModel.GroupViewModels
     {
         public ObservableRangeCollection<Group> Groups { get; set; }
         public ObservableRangeCollection<User> GroupUsers { get; set; }
+        public Command<int> LoadGroupUsers { get; }
 
 
         private Group group;
-
+        public Group Group
+        {
+            get => group;
+            set => group = value;
+        }
         public GroupViewModel(Group group)
         {
             Group = group;
@@ -35,15 +40,11 @@ namespace Travelity.ViewModel.GroupViewModels
         {
             CurrentUsername = Preferences.Get("CurrentUsername", "");
             Groups = new ObservableRangeCollection<Group>();
+            LoadGroupUsers = new Command<int>(GetGroupUsers);
             LoadGroups();
-            GetGroupUsers(1);
         }
 
-        public Group Group
-        {
-            get => group;
-            set => group = value;
-        }
+        
 
         private async void LoadGroups()
         {
@@ -70,63 +71,63 @@ namespace Travelity.ViewModel.GroupViewModels
 
         readonly int peopleToShow = 3;
 
-        //public string PeopleAtGroup
-        //{
-        //    get
-        //    {
-        //        var firstPerson = group.People.FirstOrDefault();
-        //        var peopleCount = group.People.Count;
+        public string PeopleAtGroup
+        {
+            get
+            {
+                var firstPerson = group.Users.FirstOrDefault();
+                var peopleCount = group.Users.Count;
 
-        //        if (firstPerson == null)
-        //        {
-        //            return "It's just you";
+                if (firstPerson == null)
+                {
+                    return "It's just you";
 
-        //        }
+                }
 
-        //        var names = group.People.Select(x => x.Name).OrderBy(o => o).Take(3).ToList();
-        //        string nameList = string.Join(", ", names);
+                var names = group.Users.Select(x => x.firstName).OrderBy(o => o).Take(3).ToList();
+                string nameList = string.Join(", ", names);
 
-        //        if (peopleCount > peopleToShow)
-        //        {
-        //            return $"{nameList} and {peopleCount - peopleToShow} others";
-        //        }
-        //        else
-        //        {
-        //            return nameList;
-        //        }
+                if (peopleCount > peopleToShow)
+                {
+                    return $"{nameList} and {peopleCount - peopleToShow} others";
+                }
+                else
+                {
+                    return nameList;
+                }
 
-        //    }
-        //}
+            }
+        }
 
 
-        //public List<object> PeopleImages
-        //{
-        //    get
-        //    {
-        //        var peopleCount = group.People.Count;
+        public List<object> PeopleImages
+        {
+            get
+            {
+                var peopleCount = group.Users.Count;
 
-        //        List<object> returnList = new List<object>();
-        //        returnList.AddRange(group.People.Take(peopleToShow));
-        //        if (peopleCount > peopleToShow)
-        //        {
-        //            returnList.Add(peopleCount - peopleToShow);
+                List<object> returnList = new List<object>();
+                returnList.AddRange(group.Users.Take(peopleToShow));
+                if (peopleCount > peopleToShow)
+                {
+                    returnList.Add(peopleCount - peopleToShow);
 
-        //        }
-        //        return returnList;
-        //    }
-        //}
+                }
+                return returnList;
+            }
+        }
 
-        //public List<object> TotalPeopleImages
-        //{
-        //    get
-        //    {
-        //        var peopleCount = group.People.Count;
+        public List<object> TotalPeopleImages
+        {
+            get
+            {
+                var peopleCount = group.Users.Count;
 
-        //        List<object> returnList = new List<object>();
-        //        returnList.AddRange(group.People);
-        //        returnList.Add(peopleCount);
-        //        return returnList;
-        //    }
-        //}
+                List<object> returnList = new List<object>();
+                returnList.AddRange(group.Users);
+                returnList.Add(peopleCount);
+                return returnList;
+            }
+        }
     }
 }

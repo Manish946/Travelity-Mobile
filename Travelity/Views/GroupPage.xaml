@@ -10,7 +10,7 @@
     <ContentView.BindingContext>
         <Model:GroupViewModel></Model:GroupViewModel>
     </ContentView.BindingContext>
-    <ScrollView>
+    <ScrollView VerticalScrollBarVisibility="Never">
         <controls:Background Padding="0">
             <Grid RowDefinitions="Auto,Auto">
                 <Grid Grid.Row="0"
@@ -121,8 +121,9 @@
                                                 </Grid>
                                                 <!-- Second Section-->
                                                 <Grid Grid.Row="1"
-                                                      ColumnDefinitions="*,*">
-                                                    <StackLayout BindableLayout.ItemsSource="{Binding PeopleImages}"
+                                                      ColumnDefinitions="*,*" 
+                                                      >
+                                                    <StackLayout BindableLayout.ItemsSource="{Binding Users}"
                                                                  Orientation="Horizontal"
                                                                  Margin="13,0,0,0"
                                                                  BindableLayout.ItemTemplateSelector="{StaticResource PersonDataTemplateSelector}">
@@ -216,9 +217,6 @@
 
                 </Grid>
 
-                <Grid Grid.Row="2">
-                    
-                </Grid>
             </Grid>
         </controls:Background>
     </ScrollView>
