@@ -139,7 +139,7 @@
                                                                TextColor="White"></Label>
 
                                                         <Label Grid.Column="1"
-                                                               Text="Are In This Group"
+                                                               Text="In This Group"
                                                                Style="{StaticResource SectionDetail}"></Label>
                                                     </StackLayout>
 

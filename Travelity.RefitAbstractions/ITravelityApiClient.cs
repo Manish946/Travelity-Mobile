@@ -17,6 +17,8 @@ namespace Travelity.RefitAbstractions
 
         [Get("/User/Friendslist/{UserName}")]
         Task<ObservableRangeCollection<User>> GetUserFriends(string UserName);
+        [Get("/User/Groups/{UserName}")]
+        Task<ObservableRangeCollection<Group>> GetUserGroups(string UserName);
 
         [Post("/User")]
         Task CreateUser([Body] User request);

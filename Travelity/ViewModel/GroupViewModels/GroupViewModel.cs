@@ -46,7 +46,7 @@ namespace Travelity.ViewModel.GroupViewModels
 
         private async void LoadGroups()
         {
-            var Usergroups = await Client.GetGroups();
+            var Usergroups = await Client.GetUserGroups(CurrentUsername);
 
             for (int i = 0; i < Usergroups.Count(); i++)
             {
@@ -72,7 +72,7 @@ namespace Travelity.ViewModel.GroupViewModels
 
 
 
-        readonly int peopleToShow = 2;
+        readonly int peopleToShow = 3;
 
         public string PeopleAtGroup
         {
@@ -81,7 +81,7 @@ namespace Travelity.ViewModel.GroupViewModels
                 var firstPerson = group.Users.FirstOrDefault();
                 var peopleCount = group.Users.Count;
 
-                if (firstPerson == null)
+                if (peopleCount == 1)
                 {
                     return "It's just you";
 
