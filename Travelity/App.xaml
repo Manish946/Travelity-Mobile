@@ -34,7 +34,7 @@
             </Style>
 
             <DataTemplate x:Key="personTemplate">
-                <Image Source="{Binding Image}"
+                <Image Source="{Binding profilePicture}"
                        HeightRequest="30"
                        WidthRequest="30"
                        VerticalOptions="Start"

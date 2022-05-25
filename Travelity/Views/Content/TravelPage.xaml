@@ -4,10 +4,12 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              x:Class="Travelity.Views.Content.TravelPage"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
-             xmlns:viewModels="clr-namespace:Travelity.ViewModel"
+             xmlns:viewModels="clr-namespace:Travelity.ViewModel.GroupViewModels"
              xmlns:views="clr-namespace:Travelity.Views.Content.Sub_Content"
              NavigationPage.HasNavigationBar="False">
-
+    <ContentPage.BindingContext>
+        <viewModels:GroupViewModel></viewModels:GroupViewModel>
+    </ContentPage.BindingContext>
     <ScrollView>
 
         <Grid BackgroundColor="#191a1f"

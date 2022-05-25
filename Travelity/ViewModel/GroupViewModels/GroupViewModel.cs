@@ -19,8 +19,7 @@ namespace Travelity.ViewModel.GroupViewModels
 
     public class GroupViewModel : BaseTravelityViewModel
     {
-        public ObservableRangeCollection<Group> Groups { get; set; }
-        public ObservableRangeCollection<User> GroupUsers { get; set; }
+        public ObservableRangeCollection<GroupViewModel> Groups { get; set; }
         public Command<int> LoadGroupUsers { get; }
 
 
@@ -39,37 +38,41 @@ namespace Travelity.ViewModel.GroupViewModels
         public GroupViewModel()
         {
             CurrentUsername = Preferences.Get("CurrentUsername", "");
-            Groups = new ObservableRangeCollection<Group>();
-            LoadGroupUsers = new Command<int>(GetGroupUsers);
+            Groups = new ObservableRangeCollection<GroupViewModel>();
             LoadGroups();
         }
 
-        
+
 
         private async void LoadGroups()
         {
-            Groups = await Client.GetGroups();
-            
+            var Usergroups = await Client.GetGroups();
+
+            for (int i = 0; i < Usergroups.Count(); i++)
+            {
+                // Add groups in groupView model
+                var users = await GetGroupUsers(Usergroups[i].Id);
+                Usergroups[i].Users = users;
+                var group = new GroupViewModel(Usergroups[i]);
+                Groups.Add(group);
+            }
+
+
         }
 
-        public async void GetGroupUsers(int GroupId)
+        public async Task<List<User>> GetGroupUsers(int GroupId)
         {
-            try
-            {
-                GroupUsers = await Client.GetGroupUsers(GroupId);
-            }
-            catch (Exception ex)
-            {
 
-                await App.Current.MainPage.DisplayAlert("Error", ex.Message, "OK");
+            // return range collection.
+            return await Client.GetGroupUsers(GroupId);
 
-            }
+
         }
 
 
 
 
-        readonly int peopleToShow = 3;
+        readonly int peopleToShow = 2;
 
         public string PeopleAtGroup
         {

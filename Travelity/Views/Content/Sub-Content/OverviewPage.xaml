@@ -3,13 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:templates="clr-namespace:Travelity.Templates"
              xmlns:controls="clr-namespace:Travelity.Control"
+             xmlns:viewModels="clr-namespace:Travelity.ViewModel.GroupViewModels"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              x:Class="Travelity.Views.Content.Sub_Content.OverviewPage">
-
+    <ContentView.BindingContext>
+        <viewModels:GroupViewModel></viewModels:GroupViewModel>
+    </ContentView.BindingContext>
     <ContentView.Resources>
         <ResourceDictionary>
             <DataTemplate x:Key="personTemplate">
-                <Image Source="{Binding Image}"
+                <Image Source="{Binding }"
                        HeightRequest="50"
                        WidthRequest="50"
                        VerticalOptions="Start"
@@ -77,7 +80,7 @@
                                  Grid.Row="0">
                         <StackLayout Spacing="2">
 
-                            <Label Text="{Binding Group.Name}"
+                            <Label Text="{Binding Group}"
                                    Style="{StaticResource SectionHeader}"
                                    FontAttributes="Bold"
                                    FontSize="20"

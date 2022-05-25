@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
 using Travelity.Models;
+using Travelity.Abstractions.Models;
 
 namespace Travelity.Templates
 {
@@ -14,7 +15,7 @@ namespace Travelity.Templates
 
         protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
         {
-           if(item is Models.PeopleModel)
+           if(item is User)
             {
                 return PersonTemplate;
             }
