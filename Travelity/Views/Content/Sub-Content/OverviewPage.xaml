@@ -3,16 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:templates="clr-namespace:Travelity.Templates"
              xmlns:controls="clr-namespace:Travelity.Control"
-             xmlns:viewModels="clr-namespace:Travelity.ViewModel.GroupViewModels"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              x:Class="Travelity.Views.Content.Sub_Content.OverviewPage">
-    <ContentView.BindingContext>
-        <viewModels:GroupViewModel></viewModels:GroupViewModel>
-    </ContentView.BindingContext>
+
     <ContentView.Resources>
         <ResourceDictionary>
             <DataTemplate x:Key="personTemplate">
-                <Image Source="{Binding }"
+                <Image Source="{Binding profilePicture}"
                        HeightRequest="50"
                        WidthRequest="50"
                        VerticalOptions="Start"
@@ -71,8 +68,8 @@
             </BoxView>
 
             <controls:ContentBackground Padding="10"
-                                    Margin="0"
-                                    Grid.Row="1">
+                                        Margin="0"
+                                        Grid.Row="1">
 
                 <Grid RowDefinitions="Auto,*"
                       Margin="0,10,0,0">
@@ -80,14 +77,14 @@
                                  Grid.Row="0">
                         <StackLayout Spacing="2">
 
-                            <Label Text="{Binding Group}"
+                            <Label Text="{Binding Group.groupName}"
                                    Style="{StaticResource SectionHeader}"
                                    FontAttributes="Bold"
                                    FontSize="20"
                                    MaxLines="1"
                                    HorizontalOptions="Center"
                                    VerticalOptions="Start" />
-                            <Label Text="{Binding Group.Destination}"
+                            <Label Text="{Binding Group.destination}"
                                    Style="{StaticResource SectionDetail}"></Label>
                         </StackLayout>
 
@@ -98,7 +95,7 @@
                                BorderColor="MediumPurple"
                                Padding="15,5,15,5">
 
-                            <Label Text="{Binding Group.People.Count,StringFormat='{0} Members'}"
+                            <Label Text="{Binding Group.Users.Count,StringFormat='{0} Members'}"
                                    TextColor="MediumPurple"
                                    HorizontalOptions="Center"
                                    VerticalOptions="Start"></Label>
@@ -110,7 +107,6 @@
                                     HorizontalOptions="Start"
                                     AlignItems="Start"
                                     AlignContent="Start"
-                                    
                                     Margin="0"
                                     Wrap="Wrap"
                                     Direction="Row"
@@ -122,11 +118,12 @@
                                      Orientation="Horizontal"
                                      Margin="0,0,0,0"
                                      BindableLayout.ItemTemplateSelector="{StaticResource OverviewPersonDataTemplateSelector}">
+                            </StackLayout>-->
 
-                        </StackLayout>-->
+
                         </FlexLayout>
                     </StackLayout>
-                   
+
 
                 </Grid>
             </controls:ContentBackground>

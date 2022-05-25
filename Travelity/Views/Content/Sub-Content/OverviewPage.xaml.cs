@@ -12,11 +12,9 @@ namespace Travelity.Views.Content.Sub_Content
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class OverviewPage : ContentView
     {
-        GroupViewModel groupViewModel = new GroupViewModel();
         public OverviewPage()
         {
             InitializeComponent();
-            this.BindingContext = groupViewModel;
         }
 
         private async void Invite_Friends(object sender, EventArgs e)

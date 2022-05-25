@@ -7,9 +7,7 @@
              xmlns:viewModels="clr-namespace:Travelity.ViewModel.GroupViewModels"
              xmlns:views="clr-namespace:Travelity.Views.Content.Sub_Content"
              NavigationPage.HasNavigationBar="False">
-    <ContentPage.BindingContext>
-        <viewModels:GroupViewModel></viewModels:GroupViewModel>
-    </ContentPage.BindingContext>
+
     <ScrollView>
 
         <Grid BackgroundColor="#191a1f"
