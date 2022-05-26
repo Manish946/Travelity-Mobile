@@ -177,7 +177,8 @@
                                    Style="{StaticResource FormTitle}"></Label>
                             <Entry  Text="{Binding CurrentUser.firstName, Mode=TwoWay}"
                                     TextColor="White"
-                                    Style="{StaticResource FormEditor}"></Entry>
+                                    Style="{StaticResource FormEditor}">
+                            </Entry>
 
                         </StackLayout>
                         <StackLayout Style="{StaticResource FormStack}">
