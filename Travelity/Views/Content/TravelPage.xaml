@@ -47,8 +47,7 @@
                     <ImageButton Source="icon_more_horiz_outlined"
                                  Aspect="AspectFit"
                                  BackgroundColor="#191a1f"
-                                 CornerRadius="10"
-                                 
+                                 CornerRadius="10"                                 
                                  HeightRequest="30"
                                  Padding="3"
                                  BorderColor="DarkGray"

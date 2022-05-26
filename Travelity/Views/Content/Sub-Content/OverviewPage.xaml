@@ -20,7 +20,6 @@
                     <Image.Clip>
                         <RoundRectangleGeometry  Rect="0,0,50,50"
                                                  CornerRadius="25">
-
                         </RoundRectangleGeometry>
                     </Image.Clip>
                 </Image>
