@@ -4,6 +4,7 @@
            xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
            xmlns:controls="clr-namespace:Travelity.Control"
            xmlns:views="clr-namespace:Travelity.ViewModel.FriendsViewModels"
+           xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
            xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
            Size="300,400"
            x:Class="Travelity.Views.Add_Content.Popups.AddChatRoomPopup"

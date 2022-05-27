@@ -4,7 +4,7 @@
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              xmlns:controls="clr-namespace:Travelity.Control"
              xmlns:views="clr-namespace:Travelity.ViewModel.UserViewModels"      
-             xmlns:templates="clr-namespace:Travelity.Templates"
+             xmlns:templates="clr-namespace:Travelity.Templates" xmlns:local="clr-namespace:Travelity.Custom_Renderer"
              x:Class="Travelity.Views.Add_Content.Popups.AddGroupPopup"
              Size="330,500"
              >
@@ -82,11 +82,7 @@
                                    CornerRadius="10"
                                     WidthRequest="550" 
                                     HeightRequest="40">
-                                <Entry HeightRequest="40" Background="null">
-                                    <Entry.Effects>
-                                        
-                                    </Entry.Effects>
-                                </Entry>
+                                <local:BorderlessEntry HeightRequest="40" >       </local:BorderlessEntry>
                             </Frame>
 
                         </StackLayout>
