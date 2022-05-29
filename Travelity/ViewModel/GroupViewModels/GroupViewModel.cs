@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -17,12 +18,12 @@ namespace Travelity.ViewModel.GroupViewModels
 {
     [AddINotifyPropertyChangedInterface]
 
-    public class GroupViewModel : BaseTravelityViewModel
+    public class GroupViewModel : BaseGroupViewModel
     {
         public ObservableRangeCollection<GroupViewModel> Groups { get; set; }
         public Command<int> LoadGroupUsers { get; }
-
-
+        public Command CreateGroupCommand { get; }
+        private Group newGroup;
         private Group group;
         public Group Group
         {
@@ -32,17 +33,31 @@ namespace Travelity.ViewModel.GroupViewModels
         public GroupViewModel(Group group)
         {
             Group = group;
-
         }
 
         public GroupViewModel()
         {
+            CreateGroupCommand = new Command(CreateGroup);
             CurrentUsername = Preferences.Get("CurrentUsername", "");
             Groups = new ObservableRangeCollection<GroupViewModel>();
+            NewGroup = new Group();
+            newGroup = NewGroup;
+
             LoadGroups();
         }
 
-
+        public async void ChangeGroupPicture(Stream mediaFile, string path)
+        {
+            Task<string> downloadableImage = fireStorageDB.UploadGroupPicture(mediaFile,path);
+            if(await downloadableImage != null)
+            {
+                newGroup.groupThumbnail = await downloadableImage;                
+            }
+            else
+            {
+                return;
+            }
+        }
 
         private async void LoadGroups()
         {
@@ -69,6 +84,13 @@ namespace Travelity.ViewModel.GroupViewModels
 
         }
 
+        public async void CreateGroup(object obj)
+        {
+            newGroup.groupAdmin = CurrentUsername;
+            newGroup.createdTimeStamp = DateTime.Now;
+            await Client.CreateGroup(newGroup);
+
+        }
 
 
 

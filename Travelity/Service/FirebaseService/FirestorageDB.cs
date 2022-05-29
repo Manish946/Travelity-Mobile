@@ -42,7 +42,24 @@ namespace Travelity.Service.FirebaseService
 
         }
 
+        public async Task<string> UploadGroupPicture(Stream fileStream, string fileName)
+        {
+            try
+            {
 
+                var imageUrl = await firebaseStorage.Child("Groups").Child("GroupsThumbnail").Child(fileName + "Group.png").PutAsync(fileStream);
+
+                return imageUrl;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+        }
 
 
         //// Delete profile picture from fire store.

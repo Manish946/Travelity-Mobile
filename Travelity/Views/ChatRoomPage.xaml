@@ -162,7 +162,6 @@
                                 HorizontalOptions="Center"
                                 WidthRequest="60"
                                 FontAttributes="Bold"
-                                FontFamily="AharoniFont.tff"
                                 HeightRequest="60"
                                 Text="+"
                                 FontSize="30"

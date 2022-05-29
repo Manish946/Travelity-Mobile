@@ -3,14 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              xmlns:controls="clr-namespace:Travelity.Control"
-             xmlns:views="clr-namespace:Travelity.ViewModel.UserViewModels"      
+             xmlns:views="clr-namespace:Travelity.ViewModel.GroupViewModels"      
              xmlns:templates="clr-namespace:Travelity.Templates" xmlns:local="clr-namespace:Travelity.Custom_Renderer"
              x:Class="Travelity.Views.Add_Content.Popups.AddGroupPopup"
              Size="330,500"
              >
 
     <xct:Popup.BindingContext>
-        <views:UserViewModel></views:UserViewModel>
+        <views:GroupViewModel></views:GroupViewModel>
     </xct:Popup.BindingContext>
 
     <controls:ContentBackground Padding="10">
@@ -18,7 +18,7 @@
             <StackLayout Orientation="Vertical"
                              HorizontalOptions="Center"
                              VerticalOptions="Center">
-                <Grid RowDefinitions="140,*,*,*"
+                <Grid RowDefinitions="140,*,Auto,Auto,*"
                           HorizontalOptions="Center"
                           
                           VerticalOptions="Center">
@@ -32,17 +32,38 @@
                                          Aspect="AspectFill"
                                          CornerRadius="70"
                                          Padding="0"
-                                         xct:TouchEffect.PressedScale="1.05"
-                                         Source="https://i.pinimg.com/originals/d9/56/9b/d9569bbed4393e2ceb1af7ba64fdf86a.jpg">
+                                         Source="{Binding NewGroup.groupThumbnail, Mode=TwoWay}">
                         </ImageButton>
+                        <AbsoluteLayout HorizontalOptions="EndAndExpand"
+                                            Opacity="{Binding GridOpacity}"
+                                            VerticalOptions="EndAndExpand">
+                            <StackLayout xct:TouchEffect.PressedScale="1.05">
 
+                                <Frame CornerRadius="20"
+                                           HeightRequest="20"
+                                           WidthRequest="20"
+                                           Padding="10">
+
+                                    <Image Source="https://www.rawshorts.com/freeicons/wp-content/uploads/2017/01/media-pict-camera.png"
+                                               HeightRequest="20"
+                                               WidthRequest="20">
+
+                                    </Image>
+
+                                </Frame>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="ChangeProfile"></TapGestureRecognizer>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+
+                        </AbsoluteLayout>
                     </Grid>
                     <Grid Grid.Row="1"
                               HorizontalOptions="Center"
                               VerticalOptions="Center">
                         <StackLayout>
 
-                            <Label  Text="Marketing"
+                            <Label  Text="{Binding NewGroup.groupName, Mode=TwoWay}"
                                     VerticalOptions="Center"
                                     HorizontalOptions="Center"
                                     FontSize="25"
@@ -82,14 +103,65 @@
                                    CornerRadius="10"
                                     WidthRequest="550" 
                                     HeightRequest="40">
-                                <local:BorderlessEntry HeightRequest="40" >       </local:BorderlessEntry>
+                                <local:BorderlessEntry HeightRequest="40" x:Name="GroupNameEntry" Text="{Binding NewGroup.groupName, Mode=TwoWay}">
+
+                                </local:BorderlessEntry>
+                            </Frame>
+
+                        </StackLayout>
+                        
+                       
+                    </Grid>
+
+                    <Grid Grid.Row="3"
+                          Padding="10"
+                          HorizontalOptions="Center"
+                          VerticalOptions="Center">
+                        <StackLayout 
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center">
+                            <Label HorizontalOptions="Start" VerticalOptions="Center"
+                                   Text="DESTINATION">
+
+                            </Label>
+                            <Frame Padding="5"
+                                 Margin="0"
+                                  BackgroundColor="#181E37"
+                                  HasShadow="False"
+                                  BorderColor="Transparent"
+                                   CornerRadius="10"
+                                    WidthRequest="550" 
+                                    HeightRequest="40">
+                                <local:BorderlessEntry HeightRequest="40" x:Name="DestinationEntry" Text="{Binding NewGroup.destination, Mode=TwoWay}">
+
+                                </local:BorderlessEntry>
                             </Frame>
 
                         </StackLayout>
 
                     </Grid>
+                    <Grid Grid.Row="4"
+                          Padding="10"
+                          HorizontalOptions="Center"
+                          VerticalOptions="Center">
+                        <Button BackgroundColor="{StaticResource Primary}"
+                                BorderColor="{StaticResource Primary}"
+                                BorderWidth="2"
+                                CornerRadius="15"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Center"
+                                WidthRequest="180"
+                                FontAttributes="Bold"
+                                HeightRequest="40"
+                                Text="Create New Group"
+                                Clicked="CreateGroup"
+                                Command="{Binding CreateGroupCommand}"
+                                TextTransform="None">
 
 
+                        </Button>
+
+                    </Grid>
                 </Grid>
 
             </StackLayout>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Travelity.Abstractions.Models;
 using Travelity.Models;
 using Travelity.ViewModel;
 using Travelity.ViewModel.GroupViewModels;
@@ -26,22 +27,19 @@ namespace Travelity.Views
             if (groupViewModel.Groups.Count() != 0)
             {
                 App.Current.MainPage.DisplayAlert("Error", "Found Data", "OK");
-
             }
         }
 
-        
+
 
         async void CollectionView_GroupSelected(object sender, SelectionChangedEventArgs e)
         {
             if (!(e.CurrentSelection.FirstOrDefault() is GroupViewModel currentGroup))
             {
                 return;
-
             }
             else
             {
-
                 await Navigation.PushAsync(new TravelPage(currentGroup));
                 ((CollectionView)sender).SelectedItem = null;
             }
@@ -55,21 +53,20 @@ namespace Travelity.Views
             {
                 BackgroundColor = Color.Transparent,
                 Color = Color.Transparent
-
             });
-            //if (result.ToString() == "Cancel" || result.ToString() == "")
-            //{
-            //    return;
-            //}
-            //else
-            //{
-            //    var friend = result as User;
-            //    ChatRoomVM.AddChatRoom(friend.username);
+            if (result.ToString() == "")
+            {
+                return;
+            }
+            else
+            {
+                var group = result as Group;
+                groupViewModel.CreateGroup(group);
+                // SnackBar
+                var options = groupViewModel.SnackBar(group.groupName + " Has been Created");
+                await Application.Current.MainPage.DisplaySnackBarAsync(options);
+            }
 
-            //    // SnackBar
-            //    var options = ChatRoomVM.SnackBar("New Chat Has Been Created With " + friend.fullName);
-            //    await Application.Current.MainPage.DisplaySnackBarAsync(options);
-            //}
         }
     }
 }
