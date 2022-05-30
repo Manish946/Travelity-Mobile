@@ -22,7 +22,6 @@ namespace Travelity.ViewModel.GroupViewModels
     {
         public ObservableRangeCollection<GroupViewModel> Groups { get; set; }
         public Command<int> LoadGroupUsers { get; }
-        public Command CreateGroupCommand { get; }
         private Group newGroup;
         private Group group;
         public Group Group
@@ -37,18 +36,14 @@ namespace Travelity.ViewModel.GroupViewModels
 
         public GroupViewModel()
         {
-            CreateGroupCommand = new Command(CreateGroup);
             CurrentUsername = Preferences.Get("CurrentUsername", "");
             Groups = new ObservableRangeCollection<GroupViewModel>();
             NewGroup = new Group();
-            refreshNewGroup();
-            LoadGroups();
-        }
-        private void refreshNewGroup()
-        {
             newGroup = NewGroup;
             newGroup.groupThumbnail = "https://c4.wallpaperflare.com/wallpaper/500/442/354/outrun-vaporwave-hd-wallpaper-preview.jpg";
+            LoadGroups();
         }
+
         async Task Refresh()
         {
 
@@ -66,8 +61,8 @@ namespace Travelity.ViewModel.GroupViewModels
         }
         public async Task<string> ChangeGroupPicture(Stream mediaFile, string path)
         {
-            Task<string> downloadableImage = fireStorageDB.UploadGroupPicture(mediaFile,path);
-            if(await downloadableImage != null)
+            Task<string> downloadableImage = fireStorageDB.UploadGroupPicture(mediaFile, path);
+            if (await downloadableImage != null)
             {
                 newGroup.groupThumbnail = await downloadableImage;
                 return await downloadableImage;
@@ -81,7 +76,7 @@ namespace Travelity.ViewModel.GroupViewModels
         private async void LoadGroups()
         {
             var Usergroups = await Client.GetUserGroups(CurrentUsername);
-
+            Groups.Clear();
             for (int i = 0; i < Usergroups.Count(); i++)
             {
                 // Add groups in groupView model
@@ -103,13 +98,13 @@ namespace Travelity.ViewModel.GroupViewModels
 
         }
 
-        public async void CreateGroup(object obj)
+        public async void CreateGroup(Group createGroup)
         {
-            newGroup.groupAdmin = CurrentUsername;
-            newGroup.createdTimeStamp = DateTime.Now;
-            await Client.CreateGroup(newGroup);
+            createGroup.groupAdmin = CurrentUsername;
+            createGroup.createdTimeStamp = DateTime.Now;
+            await Client.CreateGroup(createGroup);
             // Add an Admin to Group as a user.
-            var recentlyCreatedGroup = await Client.GetGroupByName(newGroup.groupName);
+            var recentlyCreatedGroup = await Client.GetGroupByName(createGroup.groupName);
             User AdminUser = await Client.GetUserByUsername(CurrentUsername);
             GroupUser groupUser = new GroupUser { GroupId = recentlyCreatedGroup.Id, UserUsername = AdminUser.username, UserId = AdminUser.id };
             await Client.AddUserToGroup(groupUser);

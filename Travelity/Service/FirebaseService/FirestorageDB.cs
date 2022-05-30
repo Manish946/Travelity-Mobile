@@ -47,7 +47,7 @@ namespace Travelity.Service.FirebaseService
             try
             {
 
-                var imageUrl = await firebaseStorage.Child("Groups").Child("GroupsThumbnail").Child(fileName + "Group.png").PutAsync(fileStream);
+                var imageUrl = await firebaseStorage.Child("Groups").Child(CurrentUserName).Child("GroupsThumbnail").Child(fileName + "Group.png").PutAsync(fileStream);
 
                 return imageUrl;
 

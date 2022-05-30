@@ -30,8 +30,6 @@ namespace Travelity.Views
             }
         }
 
-
-
         async void CollectionView_GroupSelected(object sender, SelectionChangedEventArgs e)
         {
             if (!(e.CurrentSelection.FirstOrDefault() is GroupViewModel currentGroup))

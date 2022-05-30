@@ -160,7 +160,6 @@
                                 HeightRequest="40"
                                 Text="Create New Group"
                                 Clicked="CreateGroup"
-                                Command="{Binding CreateGroupCommand}"
                                 TextTransform="None">
 
                         </Button>

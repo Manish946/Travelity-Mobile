@@ -55,9 +55,18 @@ namespace Travelity.Views.Add_Content.Popups
             }
         }
 
-        private void CreateGroup(object sender, EventArgs e)
+        private async void CreateGroup(object sender, EventArgs e)
         {
-            Dismiss("");
+            
+            if (groupViewModel.NewGroup.groupName == null || groupViewModel.NewGroup.destination == null)
+            {
+                await App.Current.MainPage.DisplayAlert("Create Group Error", "Please Fill Out Before Creating A Group!", "OK");
+
+            }
+            else
+            {
+                Dismiss(groupViewModel.NewGroup);
+            }
         }
 
         protected override object GetLightDismissResult()
