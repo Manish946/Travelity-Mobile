@@ -24,8 +24,14 @@ namespace Travelity.Views.Add_Content.Popups
         {
             InitializeComponent();
             this.BindingContext = groupViewModel;
+            GroupNameEntry.TextChanged += UpdatePreview;
         }
+        // Update live Group name Preview.
+        private void UpdatePreview(object sender, TextChangedEventArgs e)
+        {
+            GroupPreview.Text = GroupNameEntry.Text;
 
+        }
         private async void ChangeProfile(object sender, EventArgs e)
         {
             await CrossMedia.Current.Initialize();

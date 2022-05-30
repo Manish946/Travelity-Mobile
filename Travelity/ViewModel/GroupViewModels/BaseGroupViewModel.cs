@@ -9,12 +9,6 @@ namespace Travelity.ViewModel.GroupViewModels
     [AddINotifyPropertyChangedInterface]
     public class BaseGroupViewModel:BaseTravelityViewModel
     {
-        private Group _group;
-
-        public Group NewGroup
-        {
-            get { return _group; }
-            set { _group = value; }
-        }
+        public Group NewGroup{ get; set; }
     }
 }

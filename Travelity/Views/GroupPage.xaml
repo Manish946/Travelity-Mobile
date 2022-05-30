@@ -92,7 +92,8 @@
                                     </VisualStateManager.VisualStateGroups>
                                     <controls:GradientFrame>
                                             <Grid RowDefinitions="50,40,100,100"
-                                                  xct:TouchEffect.PressedScale="1.01">
+                                                  xct:TouchEffect.PressedScale="1.01"
+                                                  >
                                                 <!--<Grid.GestureRecognizers>
                                             <TapGestureRecognizer Tapped="OnGroupTravelClick"></TapGestureRecognizer>
                                         </Grid.GestureRecognizers>-->

@@ -63,7 +63,8 @@
                           VerticalOptions="Center">
                         <StackLayout>
 
-                            <Label  Text="{Binding NewGroup.groupName, Mode=TwoWay}"
+                            <Label  Text="{Binding NewGroup.groupName,Mode=OneWay}"
+                                    x:Name="GroupPreview"
                                     VerticalOptions="Center"
                                     HorizontalOptions="Center"
                                     FontSize="25"
