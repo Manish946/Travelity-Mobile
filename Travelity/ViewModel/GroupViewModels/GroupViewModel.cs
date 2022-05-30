@@ -41,21 +41,40 @@ namespace Travelity.ViewModel.GroupViewModels
             CurrentUsername = Preferences.Get("CurrentUsername", "");
             Groups = new ObservableRangeCollection<GroupViewModel>();
             NewGroup = new Group();
-            newGroup = NewGroup;
-
+            refreshNewGroup();
             LoadGroups();
         }
+        private void refreshNewGroup()
+        {
+            newGroup = NewGroup;
+            newGroup.groupThumbnail = "https://c4.wallpaperflare.com/wallpaper/500/442/354/outrun-vaporwave-hd-wallpaper-preview.jpg";
+        }
+        async Task Refresh()
+        {
 
-        public async void ChangeGroupPicture(Stream mediaFile, string path)
+            try
+            {
+                LoadGroups();
+            }
+            catch (Exception ex)
+            {
+                await App.Current.MainPage.DisplayAlert("Error", ex.Message, "OK");
+
+            }
+
+
+        }
+        public async Task<string> ChangeGroupPicture(Stream mediaFile, string path)
         {
             Task<string> downloadableImage = fireStorageDB.UploadGroupPicture(mediaFile,path);
             if(await downloadableImage != null)
             {
-                newGroup.groupThumbnail = await downloadableImage;                
+                newGroup.groupThumbnail = await downloadableImage;
+                return await downloadableImage;
             }
             else
             {
-                return;
+                return "";
             }
         }
 
@@ -89,7 +108,12 @@ namespace Travelity.ViewModel.GroupViewModels
             newGroup.groupAdmin = CurrentUsername;
             newGroup.createdTimeStamp = DateTime.Now;
             await Client.CreateGroup(newGroup);
-
+            // Add an Admin to Group as a user.
+            var recentlyCreatedGroup = await Client.GetGroupByName(newGroup.groupName);
+            User AdminUser = await Client.GetUserByUsername(CurrentUsername);
+            GroupUser groupUser = new GroupUser { GroupId = recentlyCreatedGroup.Id, UserUsername = AdminUser.username, UserId = AdminUser.id };
+            await Client.AddUserToGroup(groupUser);
+            await Refresh();
         }
 
 

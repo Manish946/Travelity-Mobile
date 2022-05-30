@@ -68,6 +68,9 @@ namespace Travelity.RefitAbstractions
         [Get("/Group/Id/{GroupId}")]
         Task<Group> GetGroupById(int GroupId);
 
+        [Get("/Group/Name/{GroupName}")]
+        Task<Group> GetGroupByName(string GroupName);
+
         [Post("/Group")]
         Task CreateGroup([Body] Group group);
 

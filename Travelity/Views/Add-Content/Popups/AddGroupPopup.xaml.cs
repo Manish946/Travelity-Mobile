@@ -20,7 +20,6 @@ namespace Travelity.Views.Add_Content.Popups
     {
         GroupViewModel groupViewModel = new GroupViewModel();
         MediaFile file;
-        public Group NewGroup { get; set; }
         public AddGroupPopup()
         {
             InitializeComponent();
@@ -43,8 +42,9 @@ namespace Travelity.Views.Add_Content.Popups
                 else
                 {
                     //  await firestorageDB.DeleteProfilePicture(editUserViewModel.PreviousProfilePicture());
-
-                    groupViewModel.ChangeGroupPicture(file.GetStream(), Path.GetFileName(file.Path));
+                    var ChangedImage = groupViewModel.ChangeGroupPicture(file.GetStream(), Path.GetFileName(file.Path));
+                    string NewImage = await ChangedImage;
+                    image.Source = NewImage;
                 }
 
             }
@@ -57,9 +57,13 @@ namespace Travelity.Views.Add_Content.Popups
 
         private void CreateGroup(object sender, EventArgs e)
         {
-           
-                Dismiss("");
-            
+            Dismiss("");
         }
+
+        protected override object GetLightDismissResult()
+        {
+            return "";
+        }
+
     }
 }

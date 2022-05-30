@@ -68,7 +68,7 @@
                       Padding="20,0,20,0">
 
                     <StackLayout Spacing="30">
-                        <CollectionView ItemsSource="{Binding Groups}"
+                        <CollectionView ItemsSource="{Binding Groups, Mode=TwoWay}"
                                         SelectionChanged="CollectionView_GroupSelected"
                                         SelectionMode="Single">
                             <CollectionView.ItemsLayout>

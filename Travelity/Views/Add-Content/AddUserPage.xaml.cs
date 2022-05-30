@@ -20,7 +20,7 @@ namespace Travelity.Views.Add_Content
     public partial class AddUserPage : ContentPage
     {
         private GoogleUserViewModel GoogleUser;
-        public User User { get; set; }
+        //public User User { get; set; }
         MediaFile file;
 
         private AddUserViewModel addUserViewModel = new AddUserViewModel();
