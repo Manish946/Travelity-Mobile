@@ -1,6 +1,8 @@
-﻿using Plugin.Media;
+﻿using dotMorten.Xamarin.Forms;
+using Plugin.Media;
 using Plugin.Media.Abstractions;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -20,12 +22,23 @@ namespace Travelity.Views.Add_Content.Popups
     {
         GroupViewModel groupViewModel = new GroupViewModel();
         MediaFile file;
+        private List<string> LocationList;
         public AddGroupPopup()
         {
             InitializeComponent();
             this.BindingContext = groupViewModel;
             GroupNameEntry.TextChanged += UpdatePreview;
+            GetWorldCitiesFromFile();
         }
+
+        private void GetWorldCitiesFromFile()
+        {
+           using(var location = typeof(AddGroupPopup).Assembly.GetManifestResourceStream("Travelity.Data.Location.worldcities.txt"))
+            {
+                LocationList = new StreamReader(location).ReadToEnd().Split('\n').Select(t=>t.Trim()).ToList();
+            }
+        }
+
         // Update live Group name Preview.
         private void UpdatePreview(object sender, TextChangedEventArgs e)
         {
@@ -80,5 +93,20 @@ namespace Travelity.Views.Add_Content.Popups
             return "";
         }
 
+        private void LocationTextChange(object sender, dotMorten.Xamarin.Forms.AutoSuggestBoxTextChangedEventArgs e)
+        {
+            AutoSuggestBox input = (AutoSuggestBox)sender;
+            input.ItemsSource = GetSuggestions(input.Text);
+        }
+
+        private List<string> GetSuggestions(string text)
+        {
+            return string.IsNullOrWhiteSpace(text)?null: LocationList.Where(location=>location.StartsWith(text, StringComparison.InvariantCultureIgnoreCase)).ToList();
+        }
+
+        private void LocationQuerySubmitted(object sender, dotMorten.Xamarin.Forms.AutoSuggestBoxQuerySubmittedEventArgs e)
+        {
+            // Options to be able to picked location to another label or text.
+        }
     }
 }

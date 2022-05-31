@@ -6,7 +6,9 @@
              xmlns:views="clr-namespace:Travelity.ViewModel.GroupViewModels"
              xmlns:templates="clr-namespace:Travelity.Templates"
              xmlns:local="clr-namespace:Travelity.Custom_Renderer"
+             xmlns:Autosuggest="clr-namespace:dotMorten.Xamarin.Forms;assembly=dotMorten.Xamarin.Forms.AutoSuggestBox"
              x:Class="Travelity.Views.Add_Content.Popups.AddGroupPopup"
+             
              Size="330,500">
 
     <xct:Popup.BindingContext>
@@ -62,7 +64,6 @@
                           HorizontalOptions="Center"
                           VerticalOptions="Center">
                         <StackLayout>
-
                             <Label  Text="{Binding NewGroup.groupName,Mode=OneWay}"
                                     x:Name="GroupPreview"
                                     VerticalOptions="Center"
@@ -71,8 +72,8 @@
                                     TextColor="{StaticResource Primary}"
                                     Style="{StaticResource PageHeader}"
                                     FontAttributes="Bold">
-
                             </Label>
+                            
                             <Label  Text="Tap the logo to upload new image"
                                     VerticalOptions="Center"
                                     HorizontalOptions="Center"
@@ -80,7 +81,6 @@
                                     TextColor="DarkGray"
                                     Style="{StaticResource SectionDetail}"
                                     FontAttributes="Bold">
-
                             </Label>
                         </StackLayout>
 
@@ -135,11 +135,15 @@
                                    CornerRadius="10"
                                    WidthRequest="550"
                                    HeightRequest="40">
-                                <local:BorderlessEntry HeightRequest="40"
-                                                       x:Name="DestinationEntry"
-                                                       Text="{Binding NewGroup.destination, Mode=TwoWay}">
-
-                                </local:BorderlessEntry>
+                                <Autosuggest:AutoSuggestBox HeightRequest="40"
+                                                            Text="{Binding NewGroup.destination, Mode=TwoWay}"
+                                                            PlaceholderText="Location"
+                                                            TextChanged="LocationTextChange"
+                                                            TextColor="White"
+                                                            
+                                                            QuerySubmitted="LocationQuerySubmitted">
+                                    
+                                </Autosuggest:AutoSuggestBox>
                             </Frame>
 
                         </StackLayout>
