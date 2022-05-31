@@ -135,7 +135,7 @@
                                    CornerRadius="10"
                                    WidthRequest="550"
                                    HeightRequest="40">
-                                <Autosuggest:AutoSuggestBox HeightRequest="40"
+                                <local:BorderlessAutoSuggestBox HeightRequest="40"
                                                             Text="{Binding NewGroup.destination, Mode=TwoWay}"
                                                             PlaceholderText="Location"
                                                             TextChanged="LocationTextChange"
@@ -143,7 +143,7 @@
                                                             
                                                             QuerySubmitted="LocationQuerySubmitted">
                                     
-                                </Autosuggest:AutoSuggestBox>
+                                </local:BorderlessAutoSuggestBox>
                             </Frame>
 
                         </StackLayout>

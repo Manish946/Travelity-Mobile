@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using Travelity.Custom_Renderer;
 using Travelity.iOS.Custom_Renderer;
@@ -13,6 +14,10 @@ namespace Travelity.iOS.Custom_Renderer
 {
     public class BorderlessRenderer:EntryRenderer
     {
+        //public BorderlessRenderer(Context context) : base(context)
+        //{
+
+        //}
         protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
         {
             base.OnElementChanged(e);
