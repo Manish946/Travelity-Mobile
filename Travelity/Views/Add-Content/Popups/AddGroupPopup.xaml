@@ -140,7 +140,6 @@
                                                             PlaceholderText="Location"
                                                             TextChanged="LocationTextChange"
                                                             TextColor="White"
-                                                            
                                                             QuerySubmitted="LocationQuerySubmitted">
                                     
                                 </local:BorderlessAutoSuggestBox>

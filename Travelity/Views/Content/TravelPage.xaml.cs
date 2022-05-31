@@ -16,14 +16,14 @@ namespace Travelity.Views.Content
     {
         public TravelPage()
         {
-            InitializeComponent();
-            
+            InitializeComponent();            
         }
         public TravelPage(GroupViewModel selectedGroup)
         {
             InitializeComponent();
             this.BindingContext = selectedGroup;
             this.OverViewPageView.BindingContext = selectedGroup;
+            
         }
         private void BackButton(object sender, EventArgs e)
         {

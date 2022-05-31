@@ -59,6 +59,13 @@ namespace Travelity.ViewModel.GroupViewModels
 
 
         }
+
+        public async void AddUserToGroup(User user, Group group)
+        {
+            GroupUser groupUser = new GroupUser { GroupId = group.Id, UserId = user.id, UserUsername = user.username };
+            await Client.AddUserToGroup(groupUser);
+        }
+
         public async Task<string> ChangeGroupPicture(Stream mediaFile, string path)
         {
             Task<string> downloadableImage = fireStorageDB.UploadGroupPicture(mediaFile, path);
@@ -75,6 +82,7 @@ namespace Travelity.ViewModel.GroupViewModels
 
         private async void LoadGroups()
         {
+            CurrentUsername = Preferences.Get("CurrentUsername", "");
             var Usergroups = await Client.GetUserGroups(CurrentUsername);
             Groups.Clear();
             for (int i = 0; i < Usergroups.Count(); i++)

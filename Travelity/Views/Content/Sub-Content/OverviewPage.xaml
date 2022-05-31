@@ -82,8 +82,9 @@
                                    FontAttributes="Bold"
                                    FontSize="20"
                                    MaxLines="1"
-                                   HorizontalOptions="Center"
-                                   VerticalOptions="Start" />
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="Start"
+                                    />
                             <Label Text="{Binding Group.destination}"
                                    Style="{StaticResource SectionDetail}"></Label>
                         </StackLayout>
