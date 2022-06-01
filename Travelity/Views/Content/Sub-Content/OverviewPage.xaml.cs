@@ -46,6 +46,7 @@ namespace Travelity.Views.Content.Sub_Content
             {
                 var friend = result as User;
                 groupViewModel.AddUserToGroup(friend, group);
+                groupViewModel.Group.Users.Add(friend);
                 //ChatRoomVM.AddChatRoom(friend.username);
 
                 // SnackBar

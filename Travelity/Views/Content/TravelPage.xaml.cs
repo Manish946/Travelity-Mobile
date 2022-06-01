@@ -25,6 +25,11 @@ namespace Travelity.Views.Content
             this.OverViewPageView.BindingContext = selectedGroup;
             
         }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            
+        }
         private void BackButton(object sender, EventArgs e)
         {
             App.Current.MainPage.Navigation.PopAsync();
