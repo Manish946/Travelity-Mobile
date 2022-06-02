@@ -121,7 +121,7 @@
                                                 <Grid Grid.Row="1"
                                                       ColumnDefinitions="*,*" 
                                                       >
-                                                    <StackLayout BindableLayout.ItemsSource="{Binding PeopleImages}"
+                                                    <StackLayout BindableLayout.ItemsSource="{Binding Group.Users}"
                                                                  Orientation="Horizontal"
                                                                  Margin="13,0,0,0"
                                                                  BindableLayout.ItemTemplateSelector="{StaticResource PersonDataTemplateSelector}">

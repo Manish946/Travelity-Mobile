@@ -64,6 +64,7 @@ namespace Travelity.ViewModel.GroupViewModels
         {
             GroupUser groupUser = new GroupUser { GroupId = group.Id, UserId = user.id, UserUsername = user.username };
             await Client.AddUserToGroup(groupUser);
+            group.Users.Add(user);
         }
 
         public async Task<string> ChangeGroupPicture(Stream mediaFile, string path)
@@ -97,7 +98,7 @@ namespace Travelity.ViewModel.GroupViewModels
 
         }
 
-        public async Task<List<User>> GetGroupUsers(int GroupId)
+        public async Task<ObservableRangeCollection<User>> GetGroupUsers(int GroupId)
         {
 
             // return range collection.
@@ -152,13 +153,13 @@ namespace Travelity.ViewModel.GroupViewModels
         }
 
 
-        public List<object> PeopleImages
+        public ObservableRangeCollection<object> PeopleImages
         {
             get
             {
                 var peopleCount = group.Users.Count;
 
-                List<object> returnList = new List<object>();
+                ObservableRangeCollection<object> returnList = new ObservableRangeCollection<object>();
                 returnList.AddRange(group.Users.Take(peopleToShow));
                 if (peopleCount > peopleToShow)
                 {
@@ -169,13 +170,13 @@ namespace Travelity.ViewModel.GroupViewModels
             }
         }
 
-        public List<object> TotalPeopleImages
+        public ObservableRangeCollection<object> TotalPeopleImages
         {
             get
             {
                 var peopleCount = group.Users.Count;
 
-                List<object> returnList = new List<object>();
+                ObservableRangeCollection<object> returnList = new ObservableRangeCollection<object>();
                 returnList.AddRange(group.Users);
                 returnList.Add(peopleCount);
                 return returnList;
