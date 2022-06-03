@@ -64,7 +64,6 @@ namespace Travelity.ViewModel.GroupViewModels
         {
             GroupUser groupUser = new GroupUser { GroupId = group.Id, UserId = user.id, UserUsername = user.username };
             await Client.AddUserToGroup(groupUser);
-            group.Users.Add(user);
         }
 
         public async Task<string> ChangeGroupPicture(Stream mediaFile, string path)
