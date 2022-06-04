@@ -112,7 +112,7 @@
                                     Wrap="Wrap"
                                     Direction="Row"
                                     JustifyContent="Start"
-                                    BindableLayout.ItemsSource="{Binding TotalPeopleImages}"
+                                    BindableLayout.ItemsSource="{Binding Group.Users}"
                                     BindableLayout.ItemTemplateSelector="{StaticResource OverviewPersonDataTemplateSelector}">
 
                             <!--<StackLayout BindableLayout.ItemsSource="{Binding TotalPeopleImages}"
@@ -120,9 +120,26 @@
                                      Margin="0,0,0,0"
                                      BindableLayout.ItemTemplateSelector="{StaticResource OverviewPersonDataTemplateSelector}">
                             </StackLayout>-->
+                            <Frame Padding="0"
+                              BackgroundColor="{StaticResource Primary}"
+                              WidthRequest="50"
+                              HeightRequest="50"
+                              VerticalOptions="Start"
+                              CornerRadius="25"
+                              Margin="0,0,10,0">
+                                <Label VerticalOptions="Center"
+                                  HorizontalOptions="Center"
+                                  FontSize="40"
+                                  Text="+">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="Invite_Friends"></TapGestureRecognizer>
+                                    </Label.GestureRecognizers>
+                                </Label>
 
+                            </Frame>
 
                         </FlexLayout>
+
                     </StackLayout>
 
 
