@@ -28,7 +28,7 @@ namespace Travelity.ViewModel
 
 
         // Travlity Web Api URL.
-        static readonly string BaseAddress = DeviceInfo.Platform == DevicePlatform.Android ? "https://travelitywebapi.azurewebsites.net/api" : "https://travelitywebapi.azurewebsites.net/api";
+        static readonly string BaseAddress = DeviceInfo.Platform == DevicePlatform.Android ? "http://164.68.120.109:8020/api" : "http://164.68.120.109:8020/api";
         // Using Refit to call our Api with baseAdrress as Client.
         private ITravelityApiClient client = RestService.For<ITravelityApiClient>(BaseAddress);
         IUserService UserService;

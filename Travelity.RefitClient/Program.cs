@@ -14,7 +14,7 @@ namespace Travelity.RefitClient
         static async Task Main(string[] args)
         {
             Console.WriteLine("Calling API using Refit");
-            var client = RestService.For<ITravelityApiClient>("https://travelitywebapi.azurewebsites.net");
+            var client = RestService.For<ITravelityApiClient>("http://164.68.120.109:8020/api");
             var users = await client.GetUsers();
             Console.WriteLine($"Currently {users.Count()} Users in the Database");
             Console.WriteLine("Creating new User");
