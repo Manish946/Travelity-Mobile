@@ -83,8 +83,7 @@
                                    FontSize="20"
                                    MaxLines="1"
                                    HorizontalOptions="Start"
-                                   VerticalOptions="Start"
-                                    />
+                                   VerticalOptions="Start" />
                             <Label Text="{Binding Group.destination}"
                                    Style="{StaticResource SectionDetail}"></Label>
                         </StackLayout>
@@ -102,8 +101,31 @@
                                    VerticalOptions="Start"></Label>
                         </Frame>
 
+
                     </StackLayout>
                     <StackLayout Grid.Row="1">
+
+                        <Frame Padding="0"
+                               BackgroundColor="{StaticResource Primary}"
+                               HeightRequest="33"
+                               WidthRequest="120"
+                               VerticalOptions="Start"
+                               HorizontalOptions="Start"
+                               CornerRadius="25"
+                               Margin="0,5,0,10">
+                            <Label VerticalOptions="Center"
+                                   HorizontalOptions="Center"
+                                   FontSize="15"
+                                   Text="Add Friends">
+
+                            </Label>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Invite_Friends"></TapGestureRecognizer>
+                            </Frame.GestureRecognizers>
+
+                        </Frame>
+
+
                         <FlexLayout VerticalOptions="Start"
                                     HorizontalOptions="Start"
                                     AlignItems="Start"
@@ -120,25 +142,8 @@
                                      Margin="0,0,0,0"
                                      BindableLayout.ItemTemplateSelector="{StaticResource OverviewPersonDataTemplateSelector}">
                             </StackLayout>-->
-                            <Frame Padding="0"
-                              BackgroundColor="{StaticResource Primary}"
-                              WidthRequest="50"
-                              HeightRequest="50"
-                              VerticalOptions="Start"
-                              CornerRadius="25"
-                              Margin="0,0,10,0">
-                                <Label VerticalOptions="Center"
-                                  HorizontalOptions="Center"
-                                  FontSize="40"
-                                  Text="+">
-                                    <Label.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="Invite_Friends"></TapGestureRecognizer>
-                                    </Label.GestureRecognizers>
-                                </Label>
-
-                            </Frame>
-
                         </FlexLayout>
+
 
                     </StackLayout>
 

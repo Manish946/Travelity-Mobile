@@ -33,21 +33,20 @@ namespace Travelity.Views
             this.Navigation.PushAsync(new ProfilePage());
         }
 
-        //async void CarouselView_GroupSelected(object sender, EventArgs e)
-        //{
-        //    GroupViewModel currentGroup = Group_CarouselView.CurrentItem as GroupViewModel;
 
-        //    if (currentGroup == null)
-        //    {
-        //        return;
+        async void CarouselView_GroupSelected(object sender, EventArgs e)
+        {
+ 
+            if (!(Group_CarouselView.CurrentItem is GroupViewModel currentGroup))
+            {
+                return;
+            }
+            else
+            {
+                await Navigation.PushAsync(new TravelPage(currentGroup));
+               // ((CollectionView)sender).SelectedItem = null;
+            }
 
-        //    }
-        //    else
-        //    {
-
-        //        await Navigation.PushAsync(new TravelPage(currentGroup));
-        //        //((CollectionView)sender).SelectedItem = null;
-        //    }
-        //}
+        }
     }
 }

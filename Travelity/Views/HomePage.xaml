@@ -148,7 +148,7 @@
                                TextColor="{StaticResource Primary}"
                                Margin="0,10,0,10"></Label>
 
-                        <!--<CarouselView ItemsSource="{Binding Groups}"
+                        <CarouselView ItemsSource="{Binding Groups}"
                                       xct:StateLayout.CurrentState="{Binding MainState}"
                                       HeightRequest="360"
                                       x:Name="Group_CarouselView">
@@ -159,15 +159,15 @@
                                     <controls:GradientFrame Padding="20">
                                         <Grid RowDefinitions="50,40,100,100"
                                               RowSpacing="10">
-                                            --><!-- First Section--><!--
+                                             <!--First Section-->
                                             <Grid.GestureRecognizers>
                                                 <TapGestureRecognizer Tapped="CarouselView_GroupSelected" />
                                             </Grid.GestureRecognizers>
                                             <Grid ColumnDefinitions="*,Auto">
                                                 <StackLayout>
-                                                    <Label Text="{Binding Group.GroupName}"
+                                                    <Label Text="{Binding Group.groupName}"
                                                            Style="{StaticResource SectionHeader}"></Label>
-                                                    <Label Text="{Binding Group.Destination}"
+                                                    <Label Text="{Binding Group.destination}"
                                                            Style="{StaticResource SectionDetail}"></Label>
                                                 </StackLayout>
                                                 <ImageButton Grid.Column="1"
@@ -180,10 +180,10 @@
 
                                                 </ImageButton>
                                             </Grid>
-                                            --><!-- Second Section--><!--
+                                             <!--Second Section-->
                                             <Grid Grid.Row="1"
                                                   ColumnDefinitions="*,*">
-                                                <StackLayout BindableLayout.ItemsSource="{Binding PeopleImages}"
+                                                <StackLayout BindableLayout.ItemsSource="{Binding Group.Users}"
                                                              Orientation="Horizontal"
                                                              Margin="13,0,0,0"
                                                              BindableLayout.ItemTemplateSelector="{StaticResource PersonDataTemplateSelector}">
@@ -207,7 +207,7 @@
 
 
 
-                                            --><!-- Third Section--><!--
+                                             <!--Third Section-->
                                             <Grid Grid.Row="2"
                                                   ColumnDefinitions="2*,*"
                                                   ColumnSpacing="20"
@@ -218,7 +218,7 @@
                                                        HasShadow="True"
                                                        IsClippedToBounds="True">
 
-                                                    <Image Source="{Binding Group.GroupThumbnail}"
+                                                    <Image Source="{Binding Group.groupThumbnail}"
                                                            Aspect="AspectFill">
 
                                                     </Image>
@@ -231,16 +231,16 @@
                                                        IsClippedToBounds="True">
 
                                                     <Image Aspect="AspectFill"
-                                                           Source="{Binding Group.GroupThumbnail}"></Image>
+                                                           Source="{Binding Group.groupThumbnail}"></Image>
                                                 </Frame>
                                             </Grid>
 
-                                            --><!-- Group Albums --><!--
+                                             <!--Group Albums--> 
                                             <StackLayout Grid.Row="3">
                                                 <Label Style="{StaticResource SectionHeader}"
                                                        Text="Group Albums"
                                                        TextColor="DarkGray"></Label>
-                                                <StackLayout BindableLayout.ItemsSource="{Binding Group.Albums}"
+                                                <StackLayout BindableLayout.ItemsSource="{Binding .}"
                                                              Orientation="Horizontal">
 
                                                     <BindableLayout.ItemTemplate>
@@ -271,7 +271,7 @@
                                 </DataTemplate>
                             </CarouselView.ItemTemplate>
 
-                        </CarouselView>-->
+                        </CarouselView>
 
 
                     </StackLayout>

@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Travelity.Abstractions.Models;
 using Travelity.Models;
 using Travelity.Service;
+using Travelity.ViewModel.GroupViewModels;
 using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -28,6 +29,7 @@ namespace Travelity.ViewModel
         public string Email { get; set; }
         public string Aboutme { get; set; }
         public ObservableRangeCollection<PostViewModel> Posts { get; set; }
+        public ObservableRangeCollection<GroupViewModel> Groups { get; set; }
         public LayoutState MainState { get; set; }
 
         public async Task RefreshCurrentUser()
@@ -201,6 +203,8 @@ namespace Travelity.ViewModel
                 post5,
                 post6
             };
+            GroupViewModel GroupVW = new GroupViewModel();
+            Groups = GroupVW.Groups;
             Task.Run(RefreshCurrentUser);
 
         }
