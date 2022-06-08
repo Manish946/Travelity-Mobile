@@ -66,5 +66,6 @@ namespace Travelity.Views
             }
 
         }
+
     }
 }

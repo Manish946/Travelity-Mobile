@@ -4,6 +4,7 @@
              x:Class="Travelity.Views.GroupPage"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              NavigationPage.HasNavigationBar="False"
+             xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
              xmlns:Model="clr-namespace:Travelity.ViewModel.GroupViewModels"
              xmlns:controls="clr-namespace:Travelity.Control"
              xmlns:CI="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin">
@@ -65,9 +66,61 @@
 
                 <!--Travel Groups-->
                 <Grid Grid.Row="1"
-                      Padding="20,0,20,0">
+                      Padding="20,0,20,0"
+                      xct:StateLayout.CurrentState="{Binding GroupState}"
+                      xct:StateLayout.AnimateStateChanges="True">
+                    <xct:StateLayout.StateViews>
 
+                        <xct:StateView StateKey="Empty"
+                                       VerticalOptions="FillAndExpand"
+                                       HorizontalOptions="FillAndExpand">
+                            <Grid HorizontalOptions="FillAndExpand"
+                                  VerticalOptions="FillAndExpand"
+                                  RowDefinitions="*,Auto,Auto">
+                                
+                                <StackLayout Grid.Row="0"
+                                             HorizontalOptions="FillAndExpand"
+                                             VerticalOptions="FillAndExpand">
+                                    <lottie:AnimationView x:Name="TravelityLoading"
+                                                          AnimationSource="Url"
+                                                          Animation="https://assets6.lottiefiles.com/packages/lf20_ljotbiif.json"
+                                                          AutoPlay="True"
+                                                          HorizontalOptions="FillAndExpand"
+                                                          VerticalOptions="FillAndExpand"
+                                                          RepeatMode="Infinite"
+                                                          WidthRequest="360"
+                                                          HeightRequest="360">
+
+
+                                    </lottie:AnimationView>
+                                    <StackLayout HorizontalOptions="CenterAndExpand"
+                                                 VerticalOptions="FillAndExpand">
+                                        <Label Text="No TravelGroups"
+                                               HorizontalTextAlignment="Center"
+                                               TextColor="White"
+                                               FontSize="Large"></Label>
+                                        <Label Text="Travel Groups Will be Shown Here"
+                                               HorizontalTextAlignment="Center"
+                                               TextColor="Gray"
+                                               FontSize="Medium"></Label>
+                                        <Button Text="Add New Travel Group"
+                                                BackgroundColor="Transparent"
+                                                TextColor="{StaticResource Primary}"
+                                                Clicked="Add_NewTravel_Button"
+                                                FontSize="Medium">
+
+                                        </Button>
+
+                                    </StackLayout>
+
+
+                                </StackLayout>
+                            </Grid>
+
+                        </xct:StateView>
+                    </xct:StateLayout.StateViews>
                     <StackLayout Spacing="30">
+                        
                         <CollectionView ItemsSource="{Binding Groups, Mode=TwoWay}"
                                         SelectionChanged="CollectionView_GroupSelected"
                                         SelectionMode="Single">

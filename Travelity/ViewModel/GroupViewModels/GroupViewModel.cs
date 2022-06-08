@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Travelity.Abstractions.Models;
 using Travelity.Models;
+using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -24,6 +25,8 @@ namespace Travelity.ViewModel.GroupViewModels
         public Command<int> LoadGroupUsers { get; }
         private Group newGroup;
         private Group group;
+        public LayoutState GroupState { get; set; }
+
         public Group Group
         {
             get => group;
@@ -92,6 +95,15 @@ namespace Travelity.ViewModel.GroupViewModels
                 Usergroups[i].Users = users;
                 var group = new GroupViewModel(Usergroups[i]);
                 Groups.Add(group);
+            }
+            if (Groups.Count == 0)
+            {
+                GroupState = LayoutState.Empty;
+            }
+            else
+            {
+                GroupState = LayoutState.None;
+
             }
 
 

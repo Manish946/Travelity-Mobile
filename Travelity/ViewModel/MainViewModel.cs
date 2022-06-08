@@ -31,6 +31,8 @@ namespace Travelity.ViewModel
         public ObservableRangeCollection<PostViewModel> Posts { get; set; }
         public ObservableRangeCollection<GroupViewModel> Groups { get; set; }
         public LayoutState MainState { get; set; }
+        public LayoutState GroupState { get; set; }
+        GroupViewModel GroupVW = new GroupViewModel();
 
         public async Task RefreshCurrentUser()
         {
@@ -49,8 +51,9 @@ namespace Travelity.ViewModel
                         Email = CurrentUser.email;
                         Aboutme = CurrentUser.about;
                         //await Task.Delay(4000);
-                        MainState = LayoutState.None;
 
+                        MainState = LayoutState.None;
+                        
                     }
 
                 }
@@ -84,6 +87,8 @@ namespace Travelity.ViewModel
         public MainViewModel()
         {
             MainState = LayoutState.Loading;
+            Groups = GroupVW.Groups;
+            //GroupState = GroupVW.GroupState;
             CurrentUsername = Preferences.Get("CurrentUsername", "");
             FriendImage = "https://randomuser.me/api/portraits/women/66.jpg";
             FriendImage2 = "https://randomuser.me/api/portraits/men/36.jpg";
@@ -203,8 +208,7 @@ namespace Travelity.ViewModel
                 post5,
                 post6
             };
-            GroupViewModel GroupVW = new GroupViewModel();
-            Groups = GroupVW.Groups;
+
             Task.Run(RefreshCurrentUser);
 
         }
