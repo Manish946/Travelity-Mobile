@@ -86,25 +86,30 @@ namespace Travelity.ViewModel.GroupViewModels
         private async void LoadGroups()
         {
             CurrentUsername = Preferences.Get("CurrentUsername", "");
-            var Usergroups = await Client.GetUserGroups(CurrentUsername);
-            Groups.Clear();
-            for (int i = 0; i < Usergroups.Count(); i++)
-            {
-                // Add groups in groupView model
-                var users = await GetGroupUsers(Usergroups[i].Id);
-                Usergroups[i].Users = users;
-                var group = new GroupViewModel(Usergroups[i]);
-                Groups.Add(group);
-            }
-            if (Groups.Count == 0)
-            {
-                GroupState = LayoutState.Empty;
-            }
-            else
-            {
-                GroupState = LayoutState.None;
 
+            if (CurrentUsername != "")
+            {
+                var Usergroups = await Client.GetUserGroups(CurrentUsername);
+                Groups.Clear();
+                for (int i = 0; i < Usergroups.Count(); i++)
+                {
+                    // Add groups in groupView model
+                    var users = await GetGroupUsers(Usergroups[i].Id);
+                    Usergroups[i].Users = users;
+                    var group = new GroupViewModel(Usergroups[i]);
+                    Groups.Add(group);
+                }
+                if (Groups.Count == 0)
+                {
+                    GroupState = LayoutState.Empty;
+                }
+                else
+                {
+                    GroupState = LayoutState.None;
+
+                }
             }
+            
 
 
         }
